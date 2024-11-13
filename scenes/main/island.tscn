@@ -107,5 +107,4 @@ tile_set = SubResource("TileSet_t0bn7")
 script = ExtResource("2_f2mfn")
 
 [node name="Player" parent="." instance=ExtResource("1_7ld21")]
-visible = false
 position = Vector2(7, 11)

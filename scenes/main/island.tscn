@@ -109,8 +109,11 @@ script = ExtResource("2_f2mfn")
 
 [node name="LevelLighting" type="CanvasModulate" parent="."]
 
-[node name="Tree" parent="." instance=ExtResource("5_f4vhq")]
-position = Vector2(46, -14)
+[node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("1_7ld21")]
+[node name="Player" parent="Objects" instance=ExtResource("1_7ld21")]
 position = Vector2(7, 11)
+
+[node name="Tree" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(46, -14)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnl4avpgx1x7o"]
+[gd_scene load_steps=5 format=3 uid="uid://dnl4avpgx1x7o"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_sb3re"]
 [ext_resource type="Texture2D" uid="uid://co6q42o3lq27x" path="res://entities/player/placeholder.png" id="2_gmty6"]
+[ext_resource type="Texture2D" uid="uid://dw6aaaccdr5h5" path="res://entities/player/player_light_texture.webp" id="2_mstgv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewl3r"]
 radius = 4.0
@@ -10,6 +11,9 @@ height = 14.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_sb3re")
+
+[node name="NightLight" type="PointLight2D" parent="."]
+texture = ExtResource("2_mstgv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gmty6")

@@ -194,6 +194,8 @@ sources/0 = SubResource("TileSetAtlasSource_dr4si")
 script = ExtResource("1_o107c")
 
 [node name="LevelLighting" type="CanvasModulate" parent="."]
+light_mask = 2
+color = Color(0.176419, 0.176419, 0.176419, 1)
 
 [node name="Grass" type="TileMapLayer" parent="."]
 material = SubResource("CanvasItemMaterial_k5adq")

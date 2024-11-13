@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwpbcq6loe2e2"]
+[gd_scene load_steps=8 format=4 uid="uid://cwpbcq6loe2e2"]
 
 [ext_resource type="PackedScene" uid="uid://dnl4avpgx1x7o" path="res://entities/player/player.tscn" id="1_7ld21"]
+[ext_resource type="Script" path="res://scenes/main/island.gd" id="1_o107c"]
 [ext_resource type="Script" path="res://custom_nodes/TileMapDual.gd" id="2_f2mfn"]
 [ext_resource type="Texture2D" uid="uid://cpa6wj6vxji4r" path="res://tilesets/grass.png" id="2_mv3iw"]
 
@@ -97,11 +98,14 @@ terrain_set_0/terrain_0/color = Color(0.164761, 0.451519, 0.23924, 1)
 sources/0 = SubResource("TileSetAtlasSource_lim4k")
 
 [node name="Island" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_7ld21")]
-position = Vector2(7, 11)
+script = ExtResource("1_o107c")
 
 [node name="TileMapDual" type="TileMapLayer" parent="."]
 material = SubResource("CanvasItemMaterial_k5adq")
+tile_map_data = PackedByteArray("AAACAAEAAAACAAEAAAADAAEAAAACAAEAAAADAAIAAAACAAEAAAABAAEAAAACAAEAAAABAAAAAAACAAEAAAACAAAAAAACAAEAAAAEAAEAAAACAAEAAAAEAAIAAAACAAEAAAADAAAAAAACAAEAAAACAP//AAACAAEAAAADAP//AAACAAEAAAAEAP//AAACAAEAAAAEAAAAAAACAAEAAAAFAAEAAAACAAEAAAAFAAIAAAADAAEAAAAFAAAAAAACAAEAAAAFAAMAAAADAAMAAAAEAAMAAAADAAEAAAADAAMAAAACAAEAAAACAAMAAAACAAEAAAAGAAEAAAADAAIAAAAGAAIAAAADAAMAAAAGAAAAAAADAAIAAAAFAP//AAACAAEAAAAGAP//AAADAAIAAAADAP7/AAACAAEAAAAEAP7/AAACAAEAAAAEAAQAAAADAAMAAAADAAQAAAABAAIAAAACAAQAAAABAAIAAAABAAMAAAACAAEAAAABAAQAAAABAAIAAAAAAAQAAAABAAIAAAAAAAMAAAACAAEAAAAAAAIAAAACAAEAAAABAAIAAAACAAEAAAACAAIAAAACAAEAAAABAP//AAACAAEAAAACAP7/AAACAAEAAAABAP7/AAACAAEAAAAAAP//AAACAAEAAAAAAP7/AAACAAEAAAAAAAAAAAACAAEAAAAAAAEAAAACAAEAAAD//wMAAAACAAEAAAD//wIAAAACAAEAAAD//wEAAAACAAEAAAD//wQAAAABAAIAAAD//wAAAAACAAEAAAD/////AAACAAEAAAD///7/AAACAAEAAAD+////AAACAAEAAAD+/wAAAAACAAEAAAD+/wEAAAACAAEAAAD+/wIAAAACAAEAAAD+/wQAAAAAAAIAAAD9/wEAAAACAAEAAAD+//7/AAABAAEAAAD9//7/AAABAAMAAAAFAP7/AAADAAIAAAD8/wAAAAABAAMAAAD9/wAAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_t0bn7")
 script = ExtResource("2_f2mfn")
+
+[node name="Player" parent="." instance=ExtResource("1_7ld21")]
+visible = false
+position = Vector2(7, 11)

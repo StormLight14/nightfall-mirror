@@ -3,8 +3,7 @@ extends CharacterBody2D
 @export var SPEED := 3000.0
 
 func _physics_process(delta: float) -> void:
-	var h_dir := Input.get_axis("left", "right")
-	var v_dir := Input.get_axis("up", "down")
-	var direction := Vector2(h_dir, v_dir).normalized()
+	var input_vector = Input.get_vector("left", "right", "up", "down")
+	var direction := input_vector.normalized()
 	velocity = direction * SPEED * delta
 	move_and_slide()

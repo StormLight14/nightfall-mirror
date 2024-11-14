@@ -78,7 +78,8 @@ rotate_sun={
 2d_physics/layer_3="Player"
 2d_physics/layer_4="PlayerHurtbox"
 2d_physics/layer_5="PlayerHitbox"
-2d_physics/layer_6="PickupArea"
+2d_physics/layer_6="PickupableArea"
+2d_physics/layer_7="PickupArea"
 
 [rendering]
 

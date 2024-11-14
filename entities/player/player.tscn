@@ -23,6 +23,7 @@ collision_layer = 4
 script = ExtResource("1_sb3re")
 
 [node name="NightLight" type="PointLight2D" parent="."]
+unique_name_in_owner = true
 visible = false
 texture_filter = 2
 energy = 0.5

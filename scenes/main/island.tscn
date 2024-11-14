@@ -318,15 +318,11 @@ script = ExtResource("2_f2mfn")
 [node name="Objects" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Rocks" type="Node2D" parent="Objects"]
-
-[node name="Rock" parent="Objects/Rocks" instance=ExtResource("5_l7ouf")]
-position = Vector2(52, 27)
-
-[node name="Trees" type="Node2D" parent="Objects"]
-
-[node name="Tree" parent="Objects/Trees" instance=ExtResource("5_f4vhq")]
+[node name="Tree" parent="Objects" instance=ExtResource("5_f4vhq")]
 position = Vector2(46, -14)
+
+[node name="Rock" parent="Objects" instance=ExtResource("5_l7ouf")]
+position = Vector2(52, 27)
 
 [node name="Player" parent="Objects" instance=ExtResource("1_7ld21")]
 unique_name_in_owner = true

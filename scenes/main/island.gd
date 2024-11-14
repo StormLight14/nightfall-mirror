@@ -30,9 +30,14 @@ func nighttime() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "turn_day":
-		%AnimationPlayer.play("turn_night")
+		%DaylightCycleTimer.start()
+		is_day = true
 	elif anim_name == "turn_night":
 		%DaylightCycleTimer.start()
 
 func _on_daylight_cycle_timer_timeout() -> void:
-	%AnimationPlayer.play("turn_day")
+	if is_day:
+		%AnimationPlayer.play("turn_night")
+	else:
+		%AnimationPlayer.play("turn_day")
+	

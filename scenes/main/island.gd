@@ -13,6 +13,9 @@ func _process(_delta) -> void:
 		daytime()
 	elif Input.is_action_just_pressed("turn_night"):
 		nighttime()
+		
+	if Input.is_action_pressed("rotate_sun"):
+		%Sun.rotation_degrees += 0.5
 
 func daytime() -> void:
 	%Sun.energy = 0.5

@@ -85,3 +85,4 @@ textures/canvas_textures/default_texture_filter=0
 2d/shadow_atlas/size=1024
 2d/sdf/oversize=0
 2d/sdf/scale=2
+2d/custom_image="res://ui/cursor.png"

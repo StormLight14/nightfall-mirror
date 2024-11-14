@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cwpbcq6loe2e2"]
+[gd_scene load_steps=17 format=4 uid="uid://cwpbcq6loe2e2"]
 
 [ext_resource type="PackedScene" uid="uid://dnl4avpgx1x7o" path="res://entities/player/player.tscn" id="1_7ld21"]
 [ext_resource type="Script" path="res://scenes/main/island.gd" id="1_o107c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cpa6wj6vxji4r" path="res://tilesets/grass.png" id="2_mv3iw"]
 [ext_resource type="Texture2D" uid="uid://bs0ai7mitopg" path="res://tilesets/path.png" id="4_g7mkf"]
 [ext_resource type="PackedScene" uid="uid://bf8n6ocu1ce17" path="res://scenes/objects/trees/tree.tscn" id="5_f4vhq"]
+[ext_resource type="PackedScene" uid="uid://bb0pwqikwri2c" path="res://scenes/objects/rocks/rock.tscn" id="5_l7ouf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k5adq"]
 light_mode = 2
@@ -317,15 +318,19 @@ script = ExtResource("2_f2mfn")
 [node name="Objects" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="Rocks" type="Node2D" parent="Objects"]
+
+[node name="Rock" parent="Objects/Rocks" instance=ExtResource("5_l7ouf")]
+position = Vector2(52, 27)
+
+[node name="Trees" type="Node2D" parent="Objects"]
+
+[node name="Tree" parent="Objects/Trees" instance=ExtResource("5_f4vhq")]
+position = Vector2(46, -14)
+
 [node name="Player" parent="Objects" instance=ExtResource("1_7ld21")]
 unique_name_in_owner = true
 position = Vector2(7, 11)
-
-[node name="NightLight" parent="Objects/Player" index="0"]
-energy = 0.0
-
-[node name="Tree" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(46, -14)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -340,5 +345,3 @@ one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="DaylightCycleTimer" to="." method="_on_daylight_cycle_timer_timeout"]
-
-[editable path="Objects/Player"]

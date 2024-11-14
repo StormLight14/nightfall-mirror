@@ -8,12 +8,18 @@ var pickupable_object = null
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
+	interactions()
 	
 func movement(delta: float) -> void:
 	var input_vector := Input.get_vector("left", "right", "up", "down")
 	var direction := input_vector.normalized()
 	velocity = direction * SPEED * delta
 	move_and_slide()
+	
+func interactions() -> void:
+	if Input.is_action_just_pressed("interact"):
+		if pickupable_object:
+			pickupable_object.queue_free()
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	var hint := area.get_parent().get_node("Hint")

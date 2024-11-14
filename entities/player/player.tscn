@@ -48,6 +48,7 @@ position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_ewl3r")
 
 [node name="PickupArea" type="Area2D" parent="."]
+unique_name_in_owner = true
 collision_layer = 64
 collision_mask = 32
 

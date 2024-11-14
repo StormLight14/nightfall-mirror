@@ -25,10 +25,14 @@ func interactions() -> void:
 		else:
 			print("WARNING: attempted to pick up null object")
 
+
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	var hint := area.get_parent().get_node("Hint")
 	if hint && Settings.show_hints:
 		hint.visible = true
+		
+	if pickupable_object:
+		pickupable_object.get_node("Hint").visible = false # hide old object's hint
 		
 	pickupable_object = area.get_parent()
 	pickupable_item_id = area.item_id
@@ -38,5 +42,7 @@ func _on_pickup_area_area_exited(area: Area2D) -> void:
 	if hint:
 		hint.visible = false
 		
-	pickupable_object = null
-	pickupable_item_id = null
+	if pickupable_object == area.get_parent():
+		pickupable_object = null
+	if pickupable_item_id == area.item_id:
+		pickupable_item_id = null

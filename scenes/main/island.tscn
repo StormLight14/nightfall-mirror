@@ -326,10 +326,10 @@ position = Vector2(7, 11)
 position = Vector2(46, -14)
 
 [node name="Rock" parent="Objects" instance=ExtResource("5_l7ouf")]
-position = Vector2(52, 27)
+position = Vector2(56, 104)
 
 [node name="Rock2" parent="Objects" instance=ExtResource("5_l7ouf")]
-position = Vector2(135, 44)
+position = Vector2(56, 120)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

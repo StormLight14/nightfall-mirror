@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb0pwqikwri2c"]
+[gd_scene load_steps=6 format=3 uid="uid://bb0pwqikwri2c"]
 
 [ext_resource type="Texture2D" uid="uid://cxojem2yvbk3d" path="res://scenes/objects/rocks/rock1.png" id="1_wp5f4"]
 [ext_resource type="PackedScene" uid="uid://dp3gwauh7erjh" path="res://components/pickupable.tscn" id="2_unhmv"]
+[ext_resource type="PackedScene" uid="uid://dniyxkb2thj51" path="res://ui/hint.tscn" id="3_umvct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ineuc"]
 size = Vector2(11, 12)
@@ -27,3 +28,5 @@ collision_mask = 64
 shape = SubResource("CircleShape2D_p05h5")
 
 [node name="Pickupable" parent="." instance=ExtResource("2_unhmv")]
+
+[node name="Hint" parent="." instance=ExtResource("3_umvct")]

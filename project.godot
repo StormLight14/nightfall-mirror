@@ -25,6 +25,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="res://ui/cursor.png"
 
+[gui]
+
+theme/custom="res://ui/themes/main.tres"
+
 [input]
 
 up={

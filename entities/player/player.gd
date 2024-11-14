@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var night_light = %NightLight
 
+var active_pickup_areas := []
 var pickupable_object = null
 var pickupable_item_id = null
 
@@ -25,24 +26,42 @@ func interactions() -> void:
 		else:
 			print("WARNING: attempted to pick up null object")
 
-
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	var hint := area.get_parent().get_node("Hint")
-	if hint && Settings.show_hints:
-		hint.visible = true
-		
+	if hint and Settings.show_hints:
+		hint.visible = true  # Show the hint for this area
+	
+	# Hide the hint for the previously picked-up object (if any)
 	if pickupable_object:
-		pickupable_object.get_node("Hint").visible = false # hide old object's hint
-		
+		pickupable_object.get_node("Hint").visible = false
+
+	# Update the currently picked-up object and item ID
 	pickupable_object = area.get_parent()
 	pickupable_item_id = area.item_id
+
+	# Add the new area to the active list
+	if area not in active_pickup_areas:
+		active_pickup_areas.append(area)
 
 func _on_pickup_area_area_exited(area: Area2D) -> void:
 	var hint := area.get_parent().get_node("Hint")
 	if hint:
-		hint.visible = false
+		hint.visible = false  # Hide the hint for the exited area
+	
+	# Remove the area from the active list
+	active_pickup_areas.erase(area)
+	
+	# If there are still active pickup areas, show the hint for the last one
+	if active_pickup_areas.size() > 0:
+		var last_area = active_pickup_areas[active_pickup_areas.size() - 1]
+		var last_hint = last_area.get_parent().get_node("Hint")
+		if last_hint and Settings.show_hints:
+			last_hint.visible = true
 		
-	if pickupable_object == area.get_parent():
+		# Update the pickupable object and item ID to match the last active area
+		pickupable_object = last_area.get_parent()
+		pickupable_item_id = last_area.item_id
+	else:
+		# No active areas, reset the pickupable object and item ID
 		pickupable_object = null
-	if pickupable_item_id == area.item_id:
 		pickupable_item_id = null

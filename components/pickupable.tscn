@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" path="res://components/pickupable.gd" id="1_lihaw"]
 
-[node name="Pickupable" type="Node"]
+[node name="Pickupable" type="Area2D"]
 script = ExtResource("1_lihaw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

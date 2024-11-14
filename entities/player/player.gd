@@ -9,3 +9,6 @@ func _physics_process(delta: float) -> void:
 	var direction := input_vector.normalized()
 	velocity = direction * SPEED * delta
 	move_and_slide()
+
+func _on_pickup_area_area_entered(area: Area2D) -> void:
+	var pickupable := area.get_

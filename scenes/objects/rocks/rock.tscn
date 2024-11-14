@@ -7,8 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ineuc"]
 size = Vector2(11, 12)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p05h5"]
-radius = 11.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_r5xcc"]
+radius = 11.0454
 
 [node name="Rock" type="StaticBody2D"]
 
@@ -20,14 +20,12 @@ visible = false
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ineuc")
 
-[node name="PickupableArea" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupableArea"]
-shape = SubResource("CircleShape2D_p05h5")
-
 [node name="Pickupable" parent="." instance=ExtResource("2_unhmv")]
+
+[node name="CollisionShape2D" parent="Pickupable" index="0"]
+shape = SubResource("CircleShape2D_r5xcc")
 
 [node name="Hint" parent="." instance=ExtResource("3_umvct")]
 visible = false
+
+[editable path="Pickupable"]

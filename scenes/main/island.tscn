@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cwpbcq6loe2e2"]
+[gd_scene load_steps=16 format=4 uid="uid://cwpbcq6loe2e2"]
 
 [ext_resource type="PackedScene" uid="uid://dnl4avpgx1x7o" path="res://entities/player/player.tscn" id="1_7ld21"]
 [ext_resource type="Script" path="res://scenes/main/island.gd" id="1_o107c"]
@@ -190,6 +190,94 @@ terrain_set_0/terrain_0/name = "Path"
 terrain_set_0/terrain_0/color = Color(0.535549, 0.294406, 0.41319, 1)
 sources/0 = SubResource("TileSetAtlasSource_11d7u")
 
+[sub_resource type="Animation" id="Animation_lcy6d"]
+resource_name = "turn_day"
+length = 180.0
+step = 50.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelLighting:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 180),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.501961, 0.501961, 0.501961, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sun:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 180),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Objects/Player/NightLight:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 180),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.6, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_p2to7"]
+resource_name = "turn_night"
+length = 180.0
+step = 50.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sun:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 180),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelLighting:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 180),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.501961, 0.501961, 0.501961, 1), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Objects/Player/NightLight:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 180),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jo8t"]
+_data = {
+"turn_day": SubResource("Animation_lcy6d"),
+"turn_night": SubResource("Animation_p2to7")
+}
+
 [node name="Island" type="Node2D"]
 script = ExtResource("1_o107c")
 
@@ -233,5 +321,24 @@ y_sort_enabled = true
 unique_name_in_owner = true
 position = Vector2(7, 11)
 
+[node name="NightLight" parent="Objects/Player" index="0"]
+energy = 0.0
+
 [node name="Tree" parent="Objects" instance=ExtResource("5_f4vhq")]
 position = Vector2(46, -14)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_2jo8t")
+}
+
+[node name="DaylightCycleTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 30.0
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="DaylightCycleTimer" to="." method="_on_daylight_cycle_timer_timeout"]
+
+[editable path="Objects/Player"]

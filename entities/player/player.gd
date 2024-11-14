@@ -11,4 +11,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
-	var pickupable := area.get_
+	print("pickup area entered")
+	area.get_parent().get_node("Hint").visible = true

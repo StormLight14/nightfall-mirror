@@ -99,7 +99,6 @@ func _ready() -> void:
 		set_process(false)
 		self.changed.connect(_update_tileset, 1)
 
-
 func _process(_delta): # Only used inside the editor
 	if not self.tile_set:
 		return
@@ -114,11 +113,12 @@ func _set_display_tilemap() -> void:
 	if not self.material:
 		self.material = CanvasItemMaterial.new()
 		self.material.light_mode = CanvasItemMaterial.LightMode.LIGHT_MODE_LIGHT_ONLY
+
 	# Add the display TileMapLayer
 	if not get_node_or_null('WorldTileMap'):
 		display_tilemap = TileMapLayer.new()
 		display_tilemap.name = "WorldTileMap"
-		add_child(display_tilemap)
+		get_parent().add_child(display_tilemap)
 	# Both tilemaps must be the same
 	if display_tilemap.tile_set != self.tile_set:
 		display_tilemap.tile_set = self.tile_set

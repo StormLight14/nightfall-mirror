@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://dp3gwauh7erjh"]
+[gd_scene load_steps=2 format=3 uid="uid://dp3gwauh7erjh"]
+
+[ext_resource type="Script" path="res://components/pickupable.gd" id="1_lihaw"]
 
 [node name="Pickupable" type="Node"]
+script = ExtResource("1_lihaw")

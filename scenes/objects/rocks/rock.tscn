@@ -30,3 +30,4 @@ shape = SubResource("CircleShape2D_p05h5")
 [node name="Pickupable" parent="." instance=ExtResource("2_unhmv")]
 
 [node name="Hint" parent="." instance=ExtResource("3_umvct")]
+visible = false

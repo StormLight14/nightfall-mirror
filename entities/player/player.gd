@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var night_light = %NightLight
 
 var pickupable_object = null
+var pickupable_item_id = null
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
@@ -18,8 +19,11 @@ func movement(delta: float) -> void:
 	
 func interactions() -> void:
 	if Input.is_action_just_pressed("interact"):
-		if pickupable_object:
+		if pickupable_object && pickupable_item_id:
 			pickupable_object.queue_free()
+			Player.add_to_inventory(pickupable_item_id)
+		else:
+			print("WARNING: attempted to pick up null object")
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	var hint := area.get_parent().get_node("Hint")
@@ -27,6 +31,7 @@ func _on_pickup_area_area_entered(area: Area2D) -> void:
 		hint.visible = true
 		
 	pickupable_object = area.get_parent()
+	pickupable_item_id = area.item_id
 
 func _on_pickup_area_area_exited(area: Area2D) -> void:
 	var hint := area.get_parent().get_node("Hint")
@@ -34,3 +39,4 @@ func _on_pickup_area_area_exited(area: Area2D) -> void:
 		hint.visible = false
 		
 	pickupable_object = null
+	pickupable_item_id = null

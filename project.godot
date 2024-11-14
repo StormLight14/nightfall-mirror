@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Settings="*res://globals/Settings.gd"
+Items="*res://globals/Items.gd"
+Player="*res://globals/Player.gd"
 
 [display]
 

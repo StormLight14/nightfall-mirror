@@ -57,3 +57,4 @@ shape = SubResource("CapsuleShape2D_m2dc2")
 debug_color = Color(0.623677, 0.382308, 0.938347, 0.42)
 
 [connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]
+[connection signal="area_exited" from="PickupArea" to="." method="_on_pickup_area_area_exited"]

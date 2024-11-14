@@ -8,7 +8,7 @@
 size = Vector2(11, 12)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r5xcc"]
-radius = 11.0454
+radius = 16.1245
 
 [node name="Rock" type="StaticBody2D"]
 

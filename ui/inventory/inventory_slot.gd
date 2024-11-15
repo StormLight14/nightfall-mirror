@@ -4,8 +4,11 @@ extends Control
 @export var slot_id = 0
 
 func _ready():
-	#if is_hotbar_slot:
-		#$TextureButton.texture = preload("res://ui/inventory/hotbar_inventory_slot.png")
+	if is_hotbar_slot:
+		$TextureButton.texture_focused = preload("res://ui/inventory/hotbar_inventory_slot.png")
+		$TextureButton.texture_hover = preload("res://ui/inventory/hotbar_inventory_slot.png")
+		$TextureButton.texture_normal = preload("res://ui/inventory/hotbar_inventory_slot.png")
+		$TextureButton.texture_pressed = preload("res://ui/inventory/hotbar_inventory_slot.png")
 	update_slot_item()
 	Player.inventory_updated.connect(update_slot_item)
 	

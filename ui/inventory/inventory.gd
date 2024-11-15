@@ -15,3 +15,8 @@ func create_inventory_item(item_node: Sprite2D) -> void:
 		add_child(item_node)
 		showing_inventory_item = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+func delete_inventory_item() -> void:
+	showing_inventory_item = false
+	get_node("InventoryItem").queue_free()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

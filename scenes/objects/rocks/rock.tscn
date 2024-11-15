@@ -8,8 +8,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ineuc"]
 size = Vector2(11, 12)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r5xcc"]
-radius = 16.1245
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfcue"]
+size = Vector2(32, 32)
 
 [node name="Rock" type="StaticBody2D"]
 script = ExtResource("1_qkipj")
@@ -26,7 +26,7 @@ shape = SubResource("RectangleShape2D_ineuc")
 item_id = "rock"
 
 [node name="CollisionShape2D" parent="Pickupable" index="0"]
-shape = SubResource("CircleShape2D_r5xcc")
+shape = SubResource("RectangleShape2D_dfcue")
 
 [node name="Hint" parent="." instance=ExtResource("3_umvct")]
 visible = false

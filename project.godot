@@ -30,6 +30,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="res://ui/cursor.png"
 
+[global_group]
+
+InventorySlot="to iterate over all inventory slots"
+
 [gui]
 
 theme/custom="res://ui/themes/main.tres"

@@ -3,7 +3,7 @@ extends Control
 @export var is_hotbar_slot = false
 @export var slot_id = 0
 
-signal create_inventory_item(inventory_item_scene: PackedScene)
+signal create_inventory_item(item_node: Sprite2D)
 
 func _ready():
 	if is_hotbar_slot:
@@ -29,6 +29,6 @@ func update_slot_item():
 
 func _on_texture_button_pressed() -> void:
 	if Player.inventory[slot_id]:
-		var inventory_item = preload("res://ui/inventory/InventoryItem.tscn").instantiate()
+		var inventory_item = preload("res://ui/inventory/inventory_item.tscn").instantiate()
 		inventory_item.texture = Player.inventory[slot_id][0].item_sprite
 		create_inventory_item.emit(inventory_item)

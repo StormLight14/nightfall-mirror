@@ -332,6 +332,24 @@ position = Vector2(56, 104)
 [node name="Rock2" parent="Objects" instance=ExtResource("5_l7ouf")]
 position = Vector2(56, 120)
 
+[node name="Rock3" parent="Objects" instance=ExtResource("5_l7ouf")]
+position = Vector2(56, 120)
+
+[node name="Rock4" parent="Objects" instance=ExtResource("5_l7ouf")]
+position = Vector2(16, 69)
+
+[node name="Rock5" parent="Objects" instance=ExtResource("5_l7ouf")]
+position = Vector2(56, 67)
+
+[node name="Rock6" parent="Objects" instance=ExtResource("5_l7ouf")]
+position = Vector2(-30, 124)
+
+[node name="Rock7" parent="Objects" instance=ExtResource("5_l7ouf")]
+position = Vector2(-60, 85)
+
+[node name="Rock8" parent="Objects" instance=ExtResource("5_l7ouf")]
+position = Vector2(-34, 34)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {

@@ -10,5 +10,10 @@ func _ready():
 	Player.inventory_updated.connect(update_slot_item)
 
 func update_slot_item():
+	print("received inventory update signal")
 	if Player.inventory[slot_id]:
-		$Sprite2D.texture = Player.inventory[slot_id].item_sprite
+		$Sprite2D.texture = Player.inventory[slot_id][0].item_sprite
+		$StackAmount.text = str(Player.inventory[slot_id][1])
+	else:
+		$Sprite2D.texture = null
+		$StackAmount.text = ""

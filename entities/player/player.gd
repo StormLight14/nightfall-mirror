@@ -28,7 +28,7 @@ func interactions() -> void:
 	if Input.is_action_just_pressed("interact"):
 		if pickupable_object && pickupable_item_id:
 			pickupable_object.queue_free()
-			Player.add_to_inventory(pickupable_item_id)
+			Player.add_to_inventory(pickupable_item_id, 1)
 		else:
 			print("WARNING: attempted to pick up null object")
 

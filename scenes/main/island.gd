@@ -7,7 +7,7 @@ func _ready() -> void:
 	%Grass.update_full_tileset()
 	%Path.update_full_tileset()
 	daytime()
-	# %AnimationPlayer.speed_scale = 15 # for testing night
+	#%AnimationPlayer.speed_scale = 15 # for testing night
 	%AnimationPlayer.play("turn_night")
 	pass
 	

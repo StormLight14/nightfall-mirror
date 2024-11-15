@@ -226,7 +226,7 @@ tracks/2/path = NodePath("Objects/Player/NightLight:energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 180),
+"times": PackedFloat32Array(0, 40),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.6, 0.0]
@@ -267,7 +267,7 @@ tracks/2/path = NodePath("Objects/Player/NightLight:energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 180),
+"times": PackedFloat32Array(140, 180),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 0.6]

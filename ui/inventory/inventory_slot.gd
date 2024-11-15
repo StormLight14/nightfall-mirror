@@ -4,16 +4,26 @@ extends Control
 @export var slot_id = 0
 
 func _ready():
-	if is_hotbar_slot:
-		$TextureRect.texture = preload("res://ui/inventory/hotbar_inventory_slot.png")
+	#if is_hotbar_slot:
+		#$TextureButton.texture = preload("res://ui/inventory/hotbar_inventory_slot.png")
 	update_slot_item()
 	Player.inventory_updated.connect(update_slot_item)
+	
+func _physics_process(delta: float) -> void:
+	if get_node_or_null("InventoryItem"):
+		get_node("InventoryItem").global_position = get_viewport().get_mouse_position()
 
 func update_slot_item():
 	print("received inventory update signal")
 	if Player.inventory[slot_id]:
-		$Sprite2D.texture = Player.inventory[slot_id][0].item_sprite
-		$StackAmount.text = str(Player.inventory[slot_id][1])
+		%SlotSprite.texture = Player.inventory[slot_id][0].item_sprite
+		%StackAmount.text = str(Player.inventory[slot_id][1])
 	else:
-		$Sprite2D.texture = null
-		$StackAmount.text = ""
+		%SlotSprite.texture = null
+		%StackAmount.text = ""
+
+func _on_texture_button_pressed() -> void:
+	if Player.inventory[slot_id]:
+		var inventory_item = preload("res://ui/inventory/InventoryItem.tscn").instantiate()
+		inventory_item.texture = Player.inventory[slot_id][0].item_sprite
+		add_child(inventory_item)

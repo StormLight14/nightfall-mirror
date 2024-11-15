@@ -1,84 +1,64 @@
-[gd_scene format=3 uid="uid://dahjht4pbwqqm"]
+[gd_scene load_steps=2 format=3 uid="uid://dahjht4pbwqqm"]
+
+[ext_resource type="PackedScene" uid="uid://dhpjjcco7r1nw" path="res://ui/inventory/inventory_slot.tscn" id="1_yi1sm"]
 
 [node name="Inventory" type="CenterContainer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -87.5
-offset_top = -28.0
-offset_right = 87.5
-offset_bottom = 28.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 2
-theme_override_constants/h_separation = 25
-theme_override_constants/v_separation = 10
+theme_override_constants/h_separation = 60
+theme_override_constants/v_separation = 50
 columns = 4
 
-[node name="Label" type="Label" parent="GridContainer"]
+[node name="InventorySlot" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label2" type="Label" parent="GridContainer"]
+[node name="InventorySlot2" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label3" type="Label" parent="GridContainer"]
+[node name="InventorySlot3" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label4" type="Label" parent="GridContainer"]
+[node name="InventorySlot4" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label5" type="Label" parent="GridContainer"]
+[node name="InventorySlot5" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label6" type="Label" parent="GridContainer"]
+[node name="InventorySlot6" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label7" type="Label" parent="GridContainer"]
+[node name="InventorySlot7" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label8" type="Label" parent="GridContainer"]
+[node name="InventorySlot8" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label9" type="Label" parent="GridContainer"]
+[node name="InventorySlot9" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label10" type="Label" parent="GridContainer"]
+[node name="InventorySlot10" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label11" type="Label" parent="GridContainer"]
+[node name="InventorySlot11" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label12" type="Label" parent="GridContainer"]
+[node name="InventorySlot12" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label13" type="Label" parent="GridContainer"]
+[node name="InventorySlot13" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label14" type="Label" parent="GridContainer"]
+[node name="InventorySlot14" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label15" type="Label" parent="GridContainer"]
+[node name="InventorySlot15" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"
 
-[node name="Label16" type="Label" parent="GridContainer"]
+[node name="InventorySlot16" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-text = "Item"

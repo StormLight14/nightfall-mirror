@@ -1,6 +1,8 @@
 extends Node
 
 var inventory := []
+var showing_inventory_item := false
+var inventory_item_original_slot = null
 
 signal inventory_updated
 
@@ -60,3 +62,9 @@ func _add_to_inventory_slot(slot_index: int, amount: int) -> void:
 		
 		if not empty_slot_found:
 			print("WARNING: No empty slot found for remaining items.")
+
+func swap_slot_items(slot_1, slot_2) -> void:
+	var temp_item_1 = inventory[slot_1]
+	inventory[slot_1] = inventory[slot_2]
+	inventory[slot_2] = temp_item_1
+	inventory_updated.emit()

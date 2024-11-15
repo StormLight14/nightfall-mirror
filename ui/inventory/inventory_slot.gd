@@ -4,6 +4,7 @@ extends Control
 @export var slot_id = 0
 
 signal create_inventory_item(item_node: Sprite2D)
+signal delete_inventory_item
 
 func _ready():
 	if is_hotbar_slot:
@@ -28,7 +29,11 @@ func update_slot_item():
 		%StackAmount.text = ""
 
 func _on_texture_button_pressed() -> void:
-	if Player.inventory[slot_id]:
+	if Player.inventory[slot_id] && not Player.showing_inventory_item:
 		var inventory_item = preload("res://ui/inventory/inventory_item.tscn").instantiate()
 		inventory_item.texture = Player.inventory[slot_id][0].item_sprite
+		Player.inventory_item_original_slot = slot_id
 		create_inventory_item.emit(inventory_item)
+	elif slot_id != Player.inventory_item_original_slot:
+		Player.swap_slot_items(Player.inventory_item_original_slot, slot_id)
+		delete_inventory_item.emit()

@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhpjjcco7r1nw"]
+[gd_scene load_steps=3 format=3 uid="uid://dhpjjcco7r1nw"]
 
+[ext_resource type="Script" path="res://ui/inventory/inventory_slot.gd" id="1_c3xmh"]
 [ext_resource type="Texture2D" uid="uid://c0i0gwx0o1vv5" path="res://ui/inventory/inventory_slot.png" id="1_yi87l"]
 
 [node name="InventorySlot" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_c3xmh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

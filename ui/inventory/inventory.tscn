@@ -11,8 +11,8 @@ grow_vertical = 2
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 2
-theme_override_constants/h_separation = 60
-theme_override_constants/v_separation = 50
+theme_override_constants/h_separation = 55
+theme_override_constants/v_separation = 45
 columns = 4
 
 [node name="InventorySlot" parent="GridContainer" instance=ExtResource("1_yi1sm")]
@@ -53,12 +53,16 @@ layout_mode = 2
 
 [node name="InventorySlot13" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
+is_hotbar_slot = true
 
 [node name="InventorySlot14" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
+is_hotbar_slot = true
 
 [node name="InventorySlot15" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
+is_hotbar_slot = true
 
 [node name="InventorySlot16" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
+is_hotbar_slot = true

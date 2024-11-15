@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dwqj00t0hm3mp"]
+[gd_scene load_steps=2 format=3 uid="uid://dwqj00t0hm3mp"]
+
+[ext_resource type="PackedScene" uid="uid://dhpjjcco7r1nw" path="res://ui/inventory/inventory_slot.tscn" id="1_ab22r"]
 
 [node name="Hotbar" type="MarginContainer"]
 offset_right = 53.0
@@ -7,3 +9,24 @@ theme_override_constants/margin_left = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="InventorySlot13" parent="HBoxContainer" instance=ExtResource("1_ab22r")]
+layout_mode = 2
+is_hotbar_slot = true
+slot_id = 12
+
+[node name="InventorySlot14" parent="HBoxContainer" instance=ExtResource("1_ab22r")]
+layout_mode = 2
+is_hotbar_slot = true
+slot_id = 13
+
+[node name="InventorySlot15" parent="HBoxContainer" instance=ExtResource("1_ab22r")]
+layout_mode = 2
+is_hotbar_slot = true
+slot_id = 14
+
+[node name="InventorySlot16" parent="HBoxContainer" instance=ExtResource("1_ab22r")]
+layout_mode = 2
+is_hotbar_slot = true
+slot_id = 15

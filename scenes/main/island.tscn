@@ -194,7 +194,7 @@ sources/0 = SubResource("TileSetAtlasSource_11d7u")
 [sub_resource type="Animation" id="Animation_lcy6d"]
 resource_name = "turn_day"
 length = 180.0
-step = 50.0
+step = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -235,7 +235,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_p2to7"]
 resource_name = "turn_night"
 length = 180.0
-step = 50.0
+step = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -322,6 +322,9 @@ y_sort_enabled = true
 unique_name_in_owner = true
 position = Vector2(7, 11)
 
+[node name="NightLight" parent="Objects/Player" index="0"]
+energy = 0.0
+
 [node name="Tree" parent="Objects" instance=ExtResource("5_f4vhq")]
 position = Vector2(46, -14)
 
@@ -344,3 +347,5 @@ one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="DaylightCycleTimer" to="." method="_on_daylight_cycle_timer_timeout"]
+
+[editable path="Objects/Player"]

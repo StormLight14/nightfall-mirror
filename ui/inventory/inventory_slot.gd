@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		get_node("InventoryItem").global_position = get_viewport().get_mouse_position()
 
 func update_slot_item():
-	print("received inventory update signal")
+	#print("received inventory update signal")
 	if Player.inventory[slot_id]:
 		%SlotSprite.texture = Player.inventory[slot_id][0].item_sprite
 		%StackAmount.text = str(Player.inventory[slot_id][1])

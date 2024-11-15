@@ -11,12 +11,18 @@ var pickupable_item_id = null
 func _physics_process(delta: float) -> void:
 	movement(delta)
 	interactions()
+	handle_ui_inputs()
 	
 func movement(delta: float) -> void:
 	var input_vector := Input.get_vector("left", "right", "up", "down")
 	var direction := input_vector.normalized()
 	velocity = direction * SPEED * delta
 	move_and_slide()
+	
+func handle_ui_inputs() -> void:
+	if Input.is_action_just_pressed("inventory"):
+		%Inventory.visible = !%Inventory.visible
+		%Hotbar.visible = !%Inventory.visible
 	
 func interactions() -> void:
 	if Input.is_action_just_pressed("interact"):

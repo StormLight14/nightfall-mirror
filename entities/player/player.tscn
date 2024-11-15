@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnl4avpgx1x7o"]
+[gd_scene load_steps=9 format=3 uid="uid://dnl4avpgx1x7o"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_sb3re"]
 [ext_resource type="Texture2D" uid="uid://co6q42o3lq27x" path="res://entities/player/placeholder.png" id="2_gmty6"]
+[ext_resource type="PackedScene" uid="uid://dahjht4pbwqqm" path="res://ui/inventory/inventory.tscn" id="3_44mch"]
+[ext_resource type="PackedScene" uid="uid://dwqj00t0hm3mp" path="res://ui/inventory/hotbar.tscn" id="4_iq7yn"]
 
 [sub_resource type="Gradient" id="Gradient_vxpyq"]
 interpolation_mode = 2
@@ -56,6 +58,19 @@ collision_mask = 32
 position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_m2dc2")
 debug_color = Color(0.623677, 0.382308, 0.938347, 0.42)
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="GameUI" instance=ExtResource("3_44mch")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Hotbar" parent="GameUI" instance=ExtResource("4_iq7yn")]
+unique_name_in_owner = true
+offset_left = 23.0
+offset_top = 26.0
+offset_right = 163.0
+offset_bottom = 26.0
 
 [connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]
 [connection signal="area_exited" from="PickupArea" to="." method="_on_pickup_area_area_exited"]

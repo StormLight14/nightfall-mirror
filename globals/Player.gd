@@ -2,6 +2,8 @@ extends Node
 
 var inventory := []
 
+signal inventory_updated
+
 func _ready():
 	for _i in range(16):
 		inventory.push_back(null)
@@ -15,3 +17,4 @@ func add_to_inventory(item_id: String) -> void:
 				print("WARNING: Attempted to add invalid item to inventory.")
 			print(inventory)
 			return
+	inventory_updated.emit()

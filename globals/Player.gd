@@ -10,29 +10,33 @@ func _ready():
 	for _i in range(16):
 		inventory.push_back(null)
 
-# Function to add items to the inventory
 func add_to_inventory(item_id: String, item_amount: int) -> void:
+	# first, try to add to an existing non-full stack
+	for i in range(len(inventory)):
+		if inventory[i] != null and inventory[i][0].id == item_id:
+			# check if the stack can accommodate more items
+			var item_data = inventory[i][0]
+			var current_amount = inventory[i][1]
+			if current_amount < item_data.stack_size:
+				_add_to_inventory_slot(i, item_amount)
+				inventory_updated.emit()
+				return
+
+	# if no non-full stack was found, add to the first empty slot
 	for i in range(len(inventory)):
 		if inventory[i] == null:
-			# if an empty slot is found, try to add the item
 			if Items.items.has(item_id):
 				var item_data = Items.items[item_id]
-				inventory[i] = [item_data, 0]  # assign item data to the slot and set initial amount to 0
-				_add_to_inventory_slot(i, item_amount)  # add item amount to this slot
+				inventory[i] = [item_data, 0]  # assign item data to the slot with initial amount 0
+				_add_to_inventory_slot(i, item_amount)
 				inventory_updated.emit()
 				return
 			else:
-				print("WARNING: Attempted to add invalid item to inventory.")
+				print("WARNING: attempted to add invalid item to inventory.")
 				return
 
-		# check if the item already exists in the inventory
-		elif inventory[i][0].id == item_id:
-			# if exists, try to add it to the current stack
-			_add_to_inventory_slot(i, item_amount)
-			inventory_updated.emit()
-			return
+	print("WARNING: no space available in inventory.")
 
-	print("WARNING: No empty slot found to add the item.")
   
 func _add_to_inventory_slot(slot_index: int, amount: int) -> void:
 	var item_data = inventory[slot_index][0]

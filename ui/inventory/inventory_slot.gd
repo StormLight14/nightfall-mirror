@@ -29,11 +29,11 @@ func update_slot_item():
 		%StackAmount.text = ""
 
 func _on_texture_button_pressed() -> void:
-	if Player.inventory[slot_id] && not Player.showing_inventory_item:
+	if Player.inventory[slot_id] && not UI.showing_inventory_item:
 		var inventory_item = preload("res://ui/inventory/inventory_item.tscn").instantiate()
 		inventory_item.texture = Player.inventory[slot_id][0].item_sprite
-		Player.inventory_item_original_slot = slot_id
+		UI.inventory_item_original_slot = slot_id
 		create_inventory_item.emit(inventory_item)
-	elif slot_id != Player.inventory_item_original_slot:
-		Player.swap_slot_items(Player.inventory_item_original_slot, slot_id)
+	elif slot_id != UI.inventory_item_original_slot:
+		Player.swap_slot_items(UI.inventory_item_original_slot, slot_id)
 		delete_inventory_item.emit()

@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 Settings="*res://globals/Settings.gd"
 Items="*res://globals/Items.gd"
 Player="*res://globals/Player.gd"
+UI="*res://globals/UI.gd"
 
 [display]
 

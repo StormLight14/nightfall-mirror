@@ -1,8 +1,6 @@
 extends Node
 
 var inventory := []
-var showing_inventory_item := false
-var inventory_item_original_slot = null
 
 signal inventory_updated
 

@@ -28,7 +28,7 @@ func interactions() -> void:
 	if Input.is_action_just_pressed("interact"):
 		if pickupable_object:
 			Player.add_to_inventory(pickupable_object.get_node("Pickupable").item_id, pickupable_object.get_node("Pickupable").amount)
-			Audio.play_sound("pickup", 0.75)
+			Audio.play_sound("pickup", 0.75, -10.0)
 			pickupable_object.queue_free()
 		else:
 			print("WARNING: attempted to pick up null object")

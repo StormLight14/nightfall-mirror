@@ -31,7 +31,8 @@ func interactions() -> void:
 			Audio.play_sound("pickup", 0.75, -10.0)
 			pickupable_object.queue_free()
 		else:
-			print("WARNING: attempted to pick up null object")
+			#print("WARNING: attempted to pick up null object")
+			pass
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	var hint := area.get_parent().get_node("Hint")

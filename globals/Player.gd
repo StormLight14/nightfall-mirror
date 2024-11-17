@@ -1,6 +1,7 @@
 extends Node
 
 var inventory := []
+var active_hotbar_slot_id = 12 # 12: 1st, 13: 2nd, 14: 3rd, 15: 4th
 
 signal inventory_updated
 

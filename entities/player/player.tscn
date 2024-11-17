@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnl4avpgx1x7o"]
+[gd_scene load_steps=17 format=3 uid="uid://dnl4avpgx1x7o"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_sb3re"]
-[ext_resource type="Texture2D" uid="uid://co6q42o3lq27x" path="res://entities/player/placeholder.png" id="2_gmty6"]
+[ext_resource type="Texture2D" uid="uid://dmgcxyrjg42bg" path="res://entities/player/player_down.png" id="2_3ee5f"]
 [ext_resource type="PackedScene" uid="uid://dahjht4pbwqqm" path="res://ui/inventory/inventory.tscn" id="3_44mch"]
+[ext_resource type="Texture2D" uid="uid://dj44sa5a5vx17" path="res://entities/player/player_left.png" id="3_gtm8e"]
+[ext_resource type="Texture2D" uid="uid://brd86db0f7d1t" path="res://entities/player/player_right.png" id="4_i1yiq"]
 [ext_resource type="PackedScene" uid="uid://dwqj00t0hm3mp" path="res://ui/inventory/hotbar.tscn" id="4_iq7yn"]
+[ext_resource type="Texture2D" uid="uid://cwcxp6biq5lt1" path="res://entities/player/player_up.png" id="5_t62uw"]
 
 [sub_resource type="Gradient" id="Gradient_vxpyq"]
 interpolation_mode = 2
@@ -16,6 +19,57 @@ height = 512
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.856481, 0.203704)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuxxm"]
+atlas = ExtResource("2_3ee5f")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1wia"]
+atlas = ExtResource("3_gtm8e")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o30n"]
+atlas = ExtResource("4_i1yiq")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4soo2"]
+atlas = ExtResource("5_t62uw")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1t5r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuxxm")
+}],
+"loop": true,
+"name": &"static_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1wia")
+}],
+"loop": true,
+"name": &"static_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o30n")
+}],
+"loop": true,
+"name": &"static_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4soo2")
+}],
+"loop": true,
+"name": &"static_up",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewl3r"]
 radius = 4.0
@@ -36,8 +90,9 @@ energy = 0.6
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_rpo57")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_gmty6")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h1t5r")
+animation = &"static_down"
 offset = Vector2(0, -12)
 
 [node name="Camera2D" type="Camera2D" parent="."]

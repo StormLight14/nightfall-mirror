@@ -8,10 +8,24 @@ var active_pickup_areas := []
 var pickupable_object = null
 var pickupable_item_id = null
 
+func _ready() -> void:
+	$AnimatedSprite2D.play("static_down")
+
 func _physics_process(delta: float) -> void:
 	movement(delta)
 	interactions()
+	animations()
 	handle_ui_inputs()
+	
+func animations() -> void:
+	if Input.is_action_pressed("down"):
+		$AnimatedSprite2D.play("static_down")
+	elif Input.is_action_pressed("up"):
+		$AnimatedSprite2D.play("static_up")
+	elif Input.is_action_pressed("left"):
+		$AnimatedSprite2D.play("static_left")
+	elif Input.is_action_pressed("right"):
+		$AnimatedSprite2D.play("static_right")
 	
 func movement(delta: float) -> void:
 	var input_vector := Input.get_vector("left", "right", "up", "down")

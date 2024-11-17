@@ -15,8 +15,8 @@ script = ExtResource("1_c3xmh")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = -18.0
-offset_top = -18.0
+offset_left = -8.0
+offset_top = -9.0
 offset_right = 13.0
 offset_bottom = 13.0
 texture_normal = ExtResource("1_yi87l")
@@ -25,22 +25,6 @@ texture_hover = ExtResource("1_yi87l")
 texture_disabled = ExtResource("1_yi87l")
 texture_focused = ExtResource("1_yi87l")
 stretch_mode = 4
-
-[node name="StackAmount" type="Label" parent="TextureButton"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = -4.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "1"
-horizontal_alignment = 2
-vertical_alignment = 2
 
 [node name="SlotSprite" type="TextureRect" parent="TextureButton"]
 unique_name_in_owner = true
@@ -59,5 +43,21 @@ grow_vertical = 2
 texture = ExtResource("3_g8mvc")
 expand_mode = 2
 stretch_mode = 3
+
+[node name="StackAmount" type="Label" parent="TextureButton"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,12 +1,14 @@
 extends Node
 
+const INVENTORY_SIZE = 20
+
 var inventory := []
 var active_hotbar_slot_id = 0 # 0, 1, 2, 3
 
 signal inventory_updated
 
 func _ready():
-	for _i in range(16):
+	for _i in range(Player.INVENTORY_SIZE):
 		inventory.push_back(null)
 
 func add_to_inventory(item_id: String, item_amount: int) -> void:

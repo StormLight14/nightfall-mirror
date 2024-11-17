@@ -1,85 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dahjht4pbwqqm"]
+[gd_scene load_steps=2 format=3 uid="uid://dahjht4pbwqqm"]
 
 [ext_resource type="Script" path="res://ui/inventory/inventory.gd" id="1_vlche"]
-[ext_resource type="PackedScene" uid="uid://dhpjjcco7r1nw" path="res://ui/inventory/inventory_slot.tscn" id="1_yi1sm"]
 
-[node name="Inventory" type="CenterContainer"]
+[node name="Inventory" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 26
 script = ExtResource("1_vlche")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 2
-theme_override_constants/h_separation = 45
-theme_override_constants/v_separation = 40
-columns = 4
-
-[node name="InventorySlot" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-slot_id = 4
-
-[node name="InventorySlot2" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-slot_id = 5
-
-[node name="InventorySlot3" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-slot_id = 6
-
-[node name="InventorySlot4" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-slot_id = 7
-
-[node name="InventorySlot5" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-slot_id = 8
-
-[node name="InventorySlot6" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-slot_id = 9
-
-[node name="InventorySlot7" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-slot_id = 10
-
-[node name="InventorySlot8" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-slot_id = 11
-
-[node name="InventorySlot9" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-slot_id = 12
-
-[node name="InventorySlot10" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-slot_id = 13
-
-[node name="InventorySlot11" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-slot_id = 14
-
-[node name="InventorySlot12" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-slot_id = 15
-
-[node name="InventorySlot13" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-is_hotbar_slot = true
-
-[node name="InventorySlot14" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-is_hotbar_slot = true
-slot_id = 1
-
-[node name="InventorySlot15" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-is_hotbar_slot = true
-slot_id = 2
-
-[node name="InventorySlot16" parent="GridContainer" instance=ExtResource("1_yi1sm")]
-layout_mode = 2
-is_hotbar_slot = true
-slot_id = 3
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 30
+columns = 5

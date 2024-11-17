@@ -14,7 +14,7 @@ func _ready():
 		$TextureButton.texture_pressed = preload("res://ui/inventory/hotbar_inventory_slot.png")
 	update_slot_item()
 	Player.inventory_updated.connect(update_slot_item)
-	
+
 func _physics_process(delta: float) -> void:
 	if get_node_or_null("InventoryItem"):
 		get_node("InventoryItem").global_position = get_viewport().get_mouse_position()

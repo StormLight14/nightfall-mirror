@@ -1,9 +1,15 @@
-extends CenterContainer
+extends MarginContainer
 
 func _ready() -> void:
-	for inventory_slot in get_tree().get_nodes_in_group("InventorySlot"):
+	for i in range(Player.INVENTORY_SIZE):
+		var inventory_slot = preload("res://ui/inventory/inventory_slot.tscn").instantiate()
+		if i <= 4:
+			inventory_slot.is_hotbar_slot = true
 		inventory_slot.create_inventory_item.connect(create_inventory_item)
 		inventory_slot.delete_inventory_item.connect(delete_inventory_item)
+		inventory_slot.slot_id = i
+		$GridContainer.add_child(inventory_slot)
+		
 
 func _physics_process(delta: float) -> void:
 	if UI.showing_inventory_item:

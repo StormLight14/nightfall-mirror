@@ -19,67 +19,67 @@ columns = 4
 
 [node name="InventorySlot" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
+slot_id = 4
 
 [node name="InventorySlot2" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-slot_id = 1
+slot_id = 5
 
 [node name="InventorySlot3" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-slot_id = 2
+slot_id = 6
 
 [node name="InventorySlot4" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-slot_id = 3
+slot_id = 7
 
 [node name="InventorySlot5" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-slot_id = 4
+slot_id = 8
 
 [node name="InventorySlot6" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-slot_id = 5
+slot_id = 9
 
 [node name="InventorySlot7" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-slot_id = 6
+slot_id = 10
 
 [node name="InventorySlot8" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-slot_id = 7
+slot_id = 11
 
 [node name="InventorySlot9" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-slot_id = 8
+slot_id = 12
 
 [node name="InventorySlot10" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-slot_id = 9
+slot_id = 13
 
 [node name="InventorySlot11" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-slot_id = 10
+slot_id = 14
 
 [node name="InventorySlot12" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
-slot_id = 11
+slot_id = 15
 
 [node name="InventorySlot13" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
 is_hotbar_slot = true
-slot_id = 12
 
 [node name="InventorySlot14" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
 is_hotbar_slot = true
-slot_id = 13
+slot_id = 1
 
 [node name="InventorySlot15" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
 is_hotbar_slot = true
-slot_id = 14
+slot_id = 2
 
 [node name="InventorySlot16" parent="GridContainer" instance=ExtResource("1_yi1sm")]
 layout_mode = 2
 is_hotbar_slot = true
-slot_id = 15
+slot_id = 3

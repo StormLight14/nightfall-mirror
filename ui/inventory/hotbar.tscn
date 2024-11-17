@@ -14,19 +14,18 @@ theme_override_constants/separation = 40
 [node name="InventorySlot13" parent="HBoxContainer" instance=ExtResource("1_ab22r")]
 layout_mode = 2
 is_hotbar_slot = true
-slot_id = 12
 
 [node name="InventorySlot14" parent="HBoxContainer" instance=ExtResource("1_ab22r")]
 layout_mode = 2
 is_hotbar_slot = true
-slot_id = 13
+slot_id = 1
 
 [node name="InventorySlot15" parent="HBoxContainer" instance=ExtResource("1_ab22r")]
 layout_mode = 2
 is_hotbar_slot = true
-slot_id = 14
+slot_id = 2
 
 [node name="InventorySlot16" parent="HBoxContainer" instance=ExtResource("1_ab22r")]
 layout_mode = 2
 is_hotbar_slot = true
-slot_id = 15
+slot_id = 3

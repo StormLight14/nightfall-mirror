@@ -12,6 +12,8 @@ func _ready():
 		$TextureButton.texture_hover = preload("res://ui/inventory/hotbar_inventory_slot.png")
 		$TextureButton.texture_normal = preload("res://ui/inventory/hotbar_inventory_slot.png")
 		$TextureButton.texture_pressed = preload("res://ui/inventory/hotbar_inventory_slot.png")
+		%InputLabel.visible = true
+		%InputLabel.text = str(slot_id + 1)
 	update_slot_item()
 	Player.inventory_updated.connect(update_slot_item)
 
@@ -23,7 +25,7 @@ func update_slot_item():
 	#print("received inventory update signal")
 	if Player.inventory[slot_id]:
 		%SlotSprite.texture = Player.inventory[slot_id][0].item_sprite
-		%StackAmount.text = str(Player.inventory[slot_id][1])
+		%StackAmount.text = str(Player.inventory[slot_id][1]) + "/" + str(Player.inventory[slot_id][0].stack_size)
 	else:
 		%SlotSprite.texture = null
 		%StackAmount.text = ""

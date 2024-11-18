@@ -8,7 +8,7 @@ func _ready() -> void:
 		inventory_slot.create_inventory_item.connect(create_inventory_item)
 		inventory_slot.delete_inventory_item.connect(delete_inventory_item)
 		inventory_slot.slot_id = i
-		$GridContainer.add_child(inventory_slot)
+		%GridContainer.add_child(inventory_slot)
 		
 
 func _physics_process(delta: float) -> void:

@@ -15,10 +15,10 @@ script = ExtResource("1_c3xmh")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = -8.0
-offset_top = -9.0
-offset_right = 13.0
-offset_bottom = 13.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 23.0
+offset_bottom = 24.0
 texture_normal = ExtResource("1_yi87l")
 texture_pressed = ExtResource("1_yi87l")
 texture_hover = ExtResource("1_yi87l")

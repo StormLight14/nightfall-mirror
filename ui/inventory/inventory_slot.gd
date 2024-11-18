@@ -34,6 +34,6 @@ func _on_texture_button_pressed() -> void:
 		inventory_item.texture = Player.inventory[slot_id][0].item_sprite
 		UI.inventory_item_original_slot = slot_id
 		create_inventory_item.emit(inventory_item)
-	elif slot_id != UI.inventory_item_original_slot:
+	elif slot_id != UI.inventory_item_original_slot && Player.inventory[UI.inventory_item_original_slot]:
 		Player.swap_slot_items(UI.inventory_item_original_slot, slot_id)
 		delete_inventory_item.emit()

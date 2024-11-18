@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dahjht4pbwqqm"]
+[gd_scene load_steps=3 format=3 uid="uid://dahjht4pbwqqm"]
 
 [ext_resource type="Script" path="res://ui/inventory/inventory.gd" id="1_vlche"]
+[ext_resource type="Texture2D" uid="uid://dvgrtiuqw3uob" path="res://ui/inventory/inventory_background.png" id="2_kr1s0"]
 
 [node name="Inventory" type="MarginContainer"]
 anchors_preset = 15
@@ -8,9 +9,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 28
-theme_override_constants/margin_top = 26
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
 script = ExtResource("1_vlche")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_kr1s0")
+stretch_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 2

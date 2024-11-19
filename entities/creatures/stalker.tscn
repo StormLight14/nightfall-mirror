@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlfbyqbvhhqkf"]
+
+[ext_resource type="Script" path="res://entities/creatures/stalker.gd" id="1_1fi8u"]
+
+[node name="Stalker" type="CharacterBody2D"]
+script = ExtResource("1_1fi8u")

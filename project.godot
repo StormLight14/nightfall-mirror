@@ -35,6 +35,7 @@ mouse_cursor/custom_image="res://ui/cursor.png"
 [global_group]
 
 InventorySlot="to iterate over all inventory slots"
+Player="Only for Player node"
 
 [gui]
 

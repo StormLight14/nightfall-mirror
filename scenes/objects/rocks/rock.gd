@@ -7,4 +7,4 @@ var textures := [
 
 func _ready() -> void:
 	var variation = randi_range(0, 1)  # Randomly pick a variation (0, 1, or 2)
-	$Sprite2D.texture = textures[variation]
+	$Pickupable.sprite_2d.texture = textures[variation]

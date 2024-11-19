@@ -9,3 +9,5 @@ script = ExtResource("1_lihaw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 debug_color = Color(0.802888, 0.221996, 0.868868, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

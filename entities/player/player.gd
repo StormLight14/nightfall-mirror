@@ -45,10 +45,7 @@ func interactions() -> void:
 			Player.add_to_inventory(pickupable_object.get_node("Pickupable").item_id, pickupable_object.get_node("Pickupable").amount)
 			Audio.play_sound("pickup", 0.75, -10.0)
 			pickupable_object.queue_free()
-		else:
-			#print("WARNING: attempted to pick up null object")
-			pass
-			
+
 func hotbar_selection() -> void:
 	if Input.is_action_just_pressed("hotbar1"):
 		Player.selected_hotbar_slot_id = 0

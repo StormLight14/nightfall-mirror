@@ -7,8 +7,7 @@ func _ready() -> void:
 	%Grass.update_full_tileset()
 	%Path.update_full_tileset()
 	daytime()
-	#%AnimationPlayer.speed_scale = 15 # for testing night
-	#%DaylightCycleTimer.wait_time /= 15
+	%AnimationPlayer.speed_scale = 20 # for testing night
 	%AnimationPlayer.play("turn_night")
 
 func _process(_delta) -> void:
@@ -30,16 +29,16 @@ func nighttime() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "turn_day":
-		%DaylightCycleTimer.start()
+		%DayTimer.start()
 	elif anim_name == "turn_night":
-		%DaylightCycleTimer.start()
+		%NightTimer.start() # night ends when this timer finishes
 		is_day = false
 
-func _on_daylight_cycle_timer_timeout() -> void:
-	if is_day:
-		%AnimationPlayer.play("turn_night")
-	else:
-		is_day = true
-		Player.nights_survived += 1
-		Player.night_ended.emit()
-		%AnimationPlayer.play("turn_day")
+func _on_night_timer_timeout() -> void:
+	is_day = true
+	Player.nights_survived += 1
+	Player.night_ended.emit()
+	%AnimationPlayer.play("turn_day")
+
+func _on_day_timer_timeout() -> void:
+	%AnimationPlayer.play("turn_night")

@@ -360,7 +360,12 @@ libraries = {
 "": SubResource("AnimationLibrary_2jo8t")
 }
 
-[node name="DaylightCycleTimer" type="Timer" parent="."]
+[node name="NightTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 45.0
+one_shot = true
+
+[node name="DayTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 30.0
 one_shot = true
@@ -369,6 +374,7 @@ one_shot = true
 position = Vector2(240, 176)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="timeout" from="DaylightCycleTimer" to="." method="_on_daylight_cycle_timer_timeout"]
+[connection signal="timeout" from="NightTimer" to="." method="_on_night_timer_timeout"]
+[connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]
 
 [editable path="Objects/Player"]

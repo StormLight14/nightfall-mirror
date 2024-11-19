@@ -8,7 +8,7 @@ enum {
 }
 
 const FOLLOW_SPEED := 500.0
-const ATTACK_SPEED := 3800.0
+const ATTACK_SPEED := 4500.0
 
 var state := STILL
 var player: CharacterBody2D = null
@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		FOLLOWING:
 			velocity = direction * FOLLOW_SPEED * delta
 		FLEEING:
-			velocity = -direction * ATTACK_SPEED * 4 * delta
+			velocity = -direction * ATTACK_SPEED * 1.2 * delta
 		ATTACKING:
 			velocity = direction * ATTACK_SPEED * delta
 	move_and_slide()

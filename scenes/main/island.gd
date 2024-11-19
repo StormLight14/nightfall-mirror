@@ -43,4 +43,3 @@ func _on_daylight_cycle_timer_timeout() -> void:
 		Player.nights_survived += 1
 		Player.night_ended.emit()
 		%AnimationPlayer.play("turn_day")
-	

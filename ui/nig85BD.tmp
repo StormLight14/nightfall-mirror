@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cik4vnx1ai6jm"]
+
+[ext_resource type="Script" path="res://ui/nights_survived.gd" id="1_gv17t"]
+
+[node name="NightsSurvived" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 12.0
+grow_horizontal = 2
+theme_override_constants/margin_right = 5
+script = ExtResource("1_gv17t")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 2

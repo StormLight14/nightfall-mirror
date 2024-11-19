@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 	animations()
 	handle_ui_inputs()
 	hotbar_selection()
-	
+
 func animations() -> void:
 	if Input.is_action_pressed("down"):
 		$AnimatedSprite2D.play("static_down")
@@ -27,18 +27,18 @@ func animations() -> void:
 		$AnimatedSprite2D.play("static_left")
 	elif Input.is_action_pressed("right"):
 		$AnimatedSprite2D.play("static_right")
-	
+
 func movement(delta: float) -> void:
 	var input_vector := Input.get_vector("left", "right", "up", "down")
 	var direction := input_vector.normalized()
 	velocity = direction * SPEED * delta
 	move_and_slide()
-	
+
 func handle_ui_inputs() -> void:
 	if Input.is_action_just_pressed("inventory"):
 		%Inventory.visible = !%Inventory.visible
 		%Hotbar.visible = !%Inventory.visible
-	
+
 func interactions() -> void:
 	if Input.is_action_just_pressed("interact"):
 		if pickupable_object:

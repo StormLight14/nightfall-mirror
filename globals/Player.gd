@@ -5,8 +5,11 @@ const INVENTORY_SIZE = 20
 var inventory := []
 var selected_hotbar_slot_id = 0 # 0, 1, 2, 3
 
+var nights_survived := 0
+
 signal inventory_updated
 signal changed_hotbar_selection
+signal night_ended
 
 func _ready():
 	for _i in range(Player.INVENTORY_SIZE):

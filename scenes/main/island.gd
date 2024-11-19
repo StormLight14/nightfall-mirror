@@ -8,9 +8,9 @@ func _ready() -> void:
 	%Path.update_full_tileset()
 	daytime()
 	#%AnimationPlayer.speed_scale = 15 # for testing night
+	#%DaylightCycleTimer.wait_time /= 15
 	%AnimationPlayer.play("turn_night")
-	pass
-	
+
 func _process(_delta) -> void:
 	if Input.is_action_just_pressed("turn_day"):
 		daytime()
@@ -40,5 +40,7 @@ func _on_daylight_cycle_timer_timeout() -> void:
 		%AnimationPlayer.play("turn_night")
 	else:
 		is_day = true
+		Player.nights_survived += 1
+		Player.night_ended.emit()
 		%AnimationPlayer.play("turn_day")
 	

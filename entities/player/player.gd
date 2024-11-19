@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	interactions()
 	animations()
 	handle_ui_inputs()
+	hotbar_selection()
 	
 func animations() -> void:
 	if Input.is_action_pressed("down"):
@@ -47,6 +48,23 @@ func interactions() -> void:
 		else:
 			#print("WARNING: attempted to pick up null object")
 			pass
+			
+func hotbar_selection() -> void:
+	if Input.is_action_just_pressed("hotbar1"):
+		Player.selected_hotbar_slot_id = 0
+		Player.changed_hotbar_selection.emit()
+	elif Input.is_action_just_pressed("hotbar2"):
+		Player.selected_hotbar_slot_id = 1
+		Player.changed_hotbar_selection.emit()
+	elif Input.is_action_just_pressed("hotbar3"):
+		Player.selected_hotbar_slot_id = 2
+		Player.changed_hotbar_selection.emit()
+	elif Input.is_action_just_pressed("hotbar4"):
+		Player.selected_hotbar_slot_id = 3
+		Player.changed_hotbar_selection.emit()
+	elif Input.is_action_just_pressed("hotbar5"):
+		Player.selected_hotbar_slot_id = 4
+		Player.changed_hotbar_selection.emit()
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	var hint := area.get_parent().get_node("Hint")

@@ -3,9 +3,10 @@ extends Node
 const INVENTORY_SIZE = 20
 
 var inventory := []
-var active_hotbar_slot_id = 0 # 0, 1, 2, 3
+var selected_hotbar_slot_id = 0 # 0, 1, 2, 3
 
 signal inventory_updated
+signal changed_hotbar_selection
 
 func _ready():
 	for _i in range(Player.INVENTORY_SIZE):

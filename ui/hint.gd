@@ -1,6 +1,6 @@
 extends Control
 
-@export var text = "Press BUTTON to pick up."
+@export var button = "E"
 
 func _ready() -> void:
-	$Label.text = text
+	$Label.text = Text.game_text[Settings.language]["pickup_hint"].replace("BUTTON", button)

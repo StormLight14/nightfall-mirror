@@ -1,4 +1,7 @@
-extends CenterContainer 
+extends MarginContainer
+
+func _ready():
+	%LanguageSelect.selected = Settings.language
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -6,9 +9,5 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://menus/main/main_menu.tscn")
 
 func _on_language_select_item_selected(index: int) -> void:
-	var language := "EN"
-	match index:
-		0:
-			language = "EN"
-		1:
-			language = "NL"
+	Settings.language = index
+	Settings.language_changed.emit()

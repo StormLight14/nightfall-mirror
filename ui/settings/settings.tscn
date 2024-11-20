@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/settings/settings.gd" id="1_83umr"]
 
-[node name="Settings" type="CenterContainer"]
+[node name="Settings" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,11 +22,18 @@ theme_override_font_sizes/font_size = 8
 text = "Language:"
 
 [node name="LanguageSelect" type="OptionButton" parent="VBoxContainer/Language"]
+unique_name_in_owner = true
 layout_mode = 2
-selected = 0
-item_count = 2
-popup/item_0/text = "English (EN)"
-popup/item_1/text = "Dutch (NL)"
+selected = 1
+item_count = 5
+popup/item_0/text = "Dutch (NL)"
+popup/item_1/text = "English (EN)"
 popup/item_1/id = 1
+popup/item_2/text = "French (FR)"
+popup/item_2/id = 2
+popup/item_3/text = "German (DE)"
+popup/item_3/id = 3
+popup/item_4/text = "Spanish (ES)"
+popup/item_4/id = 4
 
 [connection signal="item_selected" from="VBoxContainer/Language/LanguageSelect" to="." method="_on_language_select_item_selected"]

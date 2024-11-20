@@ -26,6 +26,5 @@ shape = SubResource("RectangleShape2D_dfcue")
 
 [node name="Hint" parent="." instance=ExtResource("3_umvct")]
 visible = false
-text = "Press E to pick up."
 
 [editable path="Pickupable"]

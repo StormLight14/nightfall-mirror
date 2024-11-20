@@ -2,3 +2,5 @@
 
 [resource]
 Label/font_sizes/font_size = 4
+OptionButton/font_sizes/font_size = 8
+PopupMenu/font_sizes/font_size = 8

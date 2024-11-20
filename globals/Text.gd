@@ -5,7 +5,7 @@ var game_text = {
 		"start_button": "Spel Starten",
 		"settings_button": "Instellingen",
 		"quit_button": "Afsluiten",
-		"language": "Taal",
+		"settings_language": "Taal",
 		"pickup_hint": "Druk op BUTTON om op te pakken.",
 		"nights_survived": "NUMBER nachten overleefd"
 	},
@@ -13,7 +13,7 @@ var game_text = {
 		"start_button": "Start Game",
 		"settings_button": "Settings",
 		"quit_button": "Quit",
-		"language": "Language",
+		"settings_language": "Language",
 		"pickup_hint": "Press BUTTON to pick up.",
 		"nights_survived": "NUMBER nachten overleefd"
 	},
@@ -21,7 +21,7 @@ var game_text = {
 		"start_button": "Démarrer le Jeu",
 		"settings_button": "Paramètres",
 		"quit_button": "Quitter",
-		"language": "Langue",
+		"settings_language": "Langue",
 		"pickup_hint": "Appuyez sur BUTTON pour ramasser.",
 		"nights_survived": "NUMBER nuits survécues"
 	},
@@ -29,7 +29,7 @@ var game_text = {
 		"start_button": "Spiel Starten",
 		"settings_button": "Einstellungen",
 		"quit_button": "Beenden",
-		"language": "Sprache",
+		"settings_language": "Sprache",
 		"pickup_hint": "Drücke BUTTON, um aufzuheben.",
 		"nights_survived": "NUMBER Nächte überlebt"
 	},
@@ -37,7 +37,7 @@ var game_text = {
 		"start_button": "Iniciar Juego",
 		"settings_button": "Configuracion",
 		"quit_button": "Salir",
-		"language": "Idioma",
+		"settings_language": "Idioma",
 		"pickup_hint": "Presiona BUTTON para recoger.",
 		"nights_survived": "NUMBER noches sobrevividas"
 	}

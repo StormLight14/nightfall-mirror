@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://bbueuowjiecd2"]
+[gd_scene load_steps=2 format=3 uid="uid://bbueuowjiecd2"]
+
+[ext_resource type="Script" path="res://entities/shapeshifter/shapeshifter.gd" id="1_efluf"]
 
 [node name="Shapeshifter" type="CharacterBody2D"]
+script = ExtResource("1_efluf")
+
+[node name="AttackDelay" type="Timer" parent="."]
+one_shot = true

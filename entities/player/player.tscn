@@ -126,6 +126,11 @@ collision_mask = 2
 position = Vector2(0.5, -11)
 shape = SubResource("RectangleShape2D_v0vhp")
 
+[node name="GoMenuTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.5
+one_shot = true
+
 [node name="GameUI" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="GameUI" instance=ExtResource("3_44mch")]
@@ -144,3 +149,4 @@ offset_bottom = 26.0
 [connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]
 [connection signal="area_exited" from="PickupArea" to="." method="_on_pickup_area_area_exited"]
 [connection signal="area_entered" from="HurtboxArea" to="." method="_on_hurtbox_area_area_entered"]
+[connection signal="timeout" from="GoMenuTimer" to="." method="_on_go_menu_timer_timeout"]

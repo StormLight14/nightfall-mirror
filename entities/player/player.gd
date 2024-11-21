@@ -117,3 +117,7 @@ func _on_pickup_area_area_exited(area: Area2D) -> void:
 func _on_hurtbox_area_area_entered(area: Area2D) -> void:
 	# player dies
 	Fade.play("player_died")
+	%GoMenuTimer.start()
+
+func _on_go_menu_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://ui/menus/main/main_menu.tscn")

@@ -68,6 +68,12 @@ func hotbar_selection() -> void:
 	elif Input.is_action_just_pressed("hotbar5"):
 		Player.selected_hotbar_slot_id = 4
 		Player.changed_hotbar_selection.emit()
+	elif Input.is_action_just_pressed("hotbar_down") && Player.selected_hotbar_slot_id > 0:
+		Player.selected_hotbar_slot_id -= 1
+		Player.changed_hotbar_selection.emit()
+	elif Input.is_action_just_pressed("hotbar_up") && Player.selected_hotbar_slot_id < 4:
+		Player.selected_hotbar_slot_id += 1
+		Player.changed_hotbar_selection.emit()
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	var hint := area.get_parent().get_node("Hint")

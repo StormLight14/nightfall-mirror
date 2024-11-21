@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 func create_inventory_item(item_node: Sprite2D) -> void:
 	if not UI.showing_inventory_item:
 		item_node.global_position = get_viewport().get_mouse_position() + Vector2(8.0, 8.0)
-		item_node.z_index = 101
+		item_node.z_index = 15
 		get_parent().add_child(item_node)
 		UI.showing_inventory_item = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

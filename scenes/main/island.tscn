@@ -280,7 +280,7 @@ _data = {
 "turn_night": SubResource("Animation_p2to7")
 }
 
-[node name="Island" type="Node2D"]
+[node name="Island" type="Node2D" groups=["Island"]]
 script = ExtResource("1_o107c")
 
 [node name="LevelLighting" type="CanvasModulate" parent="."]

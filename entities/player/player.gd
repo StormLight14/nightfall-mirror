@@ -45,7 +45,10 @@ func interactions() -> void:
 			if not pickupable_object.get_node("Pickupable").is_shapeshifter:
 				Player.add_to_inventory(pickupable_object.get_node("Pickupable").item_id, pickupable_object.get_node("Pickupable").amount)
 			else:
-				print("spawning Shapeshifter")
+				for island in get_tree().get_nodes_in_group("Island"):
+					var shapeshifter = preload("res://entities/shapeshifter/shapeshifter.tscn").instantiate()
+					shapeshifter.global_position = pickupable_object.global_position
+					island.add_child(shapeshifter)
 			Audio.play_sound("pickup", 0.75, -10.0)
 			pickupable_object.queue_free()
 

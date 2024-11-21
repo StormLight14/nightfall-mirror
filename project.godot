@@ -37,6 +37,7 @@ mouse_cursor/custom_image="res://ui/cursor.png"
 
 InventorySlot="to iterate over all inventory slots"
 Player="Only for Player node"
+Island=""
 
 [gui]
 

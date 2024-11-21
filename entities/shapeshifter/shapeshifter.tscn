@@ -1,11 +1,80 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbueuowjiecd2"]
+[gd_scene load_steps=11 format=3 uid="uid://bbueuowjiecd2"]
 
 [ext_resource type="Script" path="res://entities/shapeshifter/shapeshifter.gd" id="1_efluf"]
+[ext_resource type="Texture2D" uid="uid://fq53kja53nof" path="res://entities/shapeshifter/shapeshifter_moving.png" id="2_e8nnt"]
+[ext_resource type="Texture2D" uid="uid://fiii5gjylhfh" path="res://entities/shapeshifter/shapeshifter_static.png" id="3_m0jtk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by04d"]
+atlas = ExtResource("2_e8nnt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycnsk"]
+atlas = ExtResource("2_e8nnt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxpdd"]
+atlas = ExtResource("2_e8nnt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdygg"]
+atlas = ExtResource("2_e8nnt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k47ta"]
+atlas = ExtResource("3_m0jtk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2l0nd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by04d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycnsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxpdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdygg")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k47ta")
+}],
+"loop": true,
+"name": &"static",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_28dtd"]
+radius = 82.0061
 
 [node name="Shapeshifter" type="CharacterBody2D"]
 script = ExtResource("1_efluf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2l0nd")
+animation = &"moving"
+frame_progress = 0.250656
 
 [node name="AttackDelay" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.5
 one_shot = true
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_28dtd")
+
+[connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

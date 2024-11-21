@@ -22,6 +22,7 @@ Player="*res://globals/Player.gd"
 UI="*res://globals/UI.gd"
 Audio="*res://globals/Audio.tscn"
 Text="*res://globals/Text.gd"
+Signals="*res://globals/Signals.gd"
 
 [display]
 

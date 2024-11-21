@@ -7,10 +7,6 @@ var selected_hotbar_slot_id = 0 # 0, 1, 2, 3
 
 var nights_survived := 0
 
-signal inventory_updated
-signal changed_hotbar_selection
-signal night_ended
-
 func _ready():
 	for _i in range(Player.INVENTORY_SIZE):
 		inventory.push_back(null)
@@ -24,7 +20,7 @@ func add_to_inventory(item_id: String, item_amount: int) -> void:
 			var current_amount = inventory[i][1]
 			if current_amount < item_data.stack_size:
 				_add_to_inventory_slot(i, item_amount)
-				inventory_updated.emit()
+				Signals.inventory_updated.emit()
 				return
 
 	# if no non-full stack was found, add to the first empty slot
@@ -34,7 +30,7 @@ func add_to_inventory(item_id: String, item_amount: int) -> void:
 				var item_data = Items.items[item_id]
 				inventory[i] = [item_data, 0]  # assign item data to the slot with initial amount 0
 				_add_to_inventory_slot(i, item_amount)
-				inventory_updated.emit()
+				Signals.inventory_updated.emit()
 				return
 			else:
 				print("WARNING: attempted to add invalid item to inventory.")
@@ -64,7 +60,7 @@ func _add_to_inventory_slot(slot_index: int, amount: int) -> void:
 			if inventory[i] == null:
 				inventory[i] = [item_data, remaining_amount]  # Add remaining items to new slot
 				empty_slot_found = true
-				inventory_updated.emit()
+				Signals.inventory_updated.emit()
 				break
 		
 		if not empty_slot_found:
@@ -75,4 +71,4 @@ func swap_slot_items(slot_1, slot_2) -> void:
 		var temp_item_1 = inventory[slot_1]
 		inventory[slot_1] = inventory[slot_2]
 		inventory[slot_2] = temp_item_1
-		inventory_updated.emit()
+		Signals.inventory_updated.emit()

@@ -2,7 +2,7 @@ extends Control
 
 func _ready() -> void:
 	set_labels()
-	Settings.language_changed.connect(set_labels)
+	Signals.language_changed.connect(set_labels)
 	
 func set_labels() -> void:
 	%StartButton.text = Text.game_text[Settings.language]["start_button"]

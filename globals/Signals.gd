@@ -1,0 +1,6 @@
+extends Node
+
+signal language_changed
+signal inventory_updated
+signal changed_hotbar_selection
+signal night_ended

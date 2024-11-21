@@ -1,8 +1,8 @@
 extends MarginContainer
 
 func _ready():
-	Player.night_ended.connect(update_label)
-	Settings.language_changed.connect(update_label)
+	Signals.night_ended.connect(update_label)
+	Signals.language_changed.connect(update_label)
 	update_label()
 	
 func update_label():

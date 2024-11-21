@@ -55,25 +55,25 @@ func interactions() -> void:
 func hotbar_selection() -> void:
 	if Input.is_action_just_pressed("hotbar1"):
 		Player.selected_hotbar_slot_id = 0
-		Player.changed_hotbar_selection.emit()
+		Signals.changed_hotbar_selection.emit()
 	elif Input.is_action_just_pressed("hotbar2"):
 		Player.selected_hotbar_slot_id = 1
-		Player.changed_hotbar_selection.emit()
+		Signals.changed_hotbar_selection.emit()
 	elif Input.is_action_just_pressed("hotbar3"):
 		Player.selected_hotbar_slot_id = 2
-		Player.changed_hotbar_selection.emit()
+		Signals.changed_hotbar_selection.emit()
 	elif Input.is_action_just_pressed("hotbar4"):
 		Player.selected_hotbar_slot_id = 3
-		Player.changed_hotbar_selection.emit()
+		Signals.changed_hotbar_selection.emit()
 	elif Input.is_action_just_pressed("hotbar5"):
 		Player.selected_hotbar_slot_id = 4
-		Player.changed_hotbar_selection.emit()
+		Signals.changed_hotbar_selection.emit()
 	elif Input.is_action_just_pressed("hotbar_down") && Player.selected_hotbar_slot_id > 0:
 		Player.selected_hotbar_slot_id -= 1
-		Player.changed_hotbar_selection.emit()
+		Signals.changed_hotbar_selection.emit()
 	elif Input.is_action_just_pressed("hotbar_up") && Player.selected_hotbar_slot_id < 4:
 		Player.selected_hotbar_slot_id += 1
-		Player.changed_hotbar_selection.emit()
+		Signals.changed_hotbar_selection.emit()
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	var hint := area.get_parent().get_node("Hint")
@@ -113,3 +113,6 @@ func _on_pickup_area_area_exited(area: Area2D) -> void:
 		# if no active areas, reset the pickupable object and item ID
 		pickupable_object = null
 		pickupable_item_id = null
+
+func _on_hurtbox_area_area_entered(area: Area2D) -> void:
+	print("you dead")

@@ -8,8 +8,8 @@ signal delete_inventory_item
 
 func _ready():
 	update_slot()
-	Player.inventory_updated.connect(update_slot)
-	Player.changed_hotbar_selection.connect(update_slot)
+	Signals.inventory_updated.connect(update_slot)
+	Signals.changed_hotbar_selection.connect(update_slot)
 
 func _physics_process(delta: float) -> void:
 	if get_node_or_null("InventoryItem"):

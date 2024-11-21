@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/settings/settings.gd" id="1_83umr"]
 
-[node name="Settings" type="MarginContainer"]
+[node name="Settings" type="CenterContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

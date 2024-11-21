@@ -1,4 +1,4 @@
-extends MarginContainer
+extends CenterContainer
 
 func _ready():
 	Signals.language_changed.connect(set_labels)

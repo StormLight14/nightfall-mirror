@@ -42,7 +42,10 @@ func handle_ui_inputs() -> void:
 func interactions() -> void:
 	if Input.is_action_just_pressed("interact"):
 		if pickupable_object:
-			Player.add_to_inventory(pickupable_object.get_node("Pickupable").item_id, pickupable_object.get_node("Pickupable").amount)
+			if not pickupable_object.get_node("Pickupable").is_shapeshifter:
+				Player.add_to_inventory(pickupable_object.get_node("Pickupable").item_id, pickupable_object.get_node("Pickupable").amount)
+			else:
+				print("spawning Shapeshifter")
 			Audio.play_sound("pickup", 0.75, -10.0)
 			pickupable_object.queue_free()
 

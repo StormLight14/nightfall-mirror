@@ -37,7 +37,7 @@ var game_text = {
 		"quit_button": "Beenden",
 		"settings_language": "Sprache",
 		"settings_show_hints": "Hinweise anzeigen",
-		"pickup_hint": "Drücke BUTTON, um aufzuheben.",
+		"pickup_hint": "Drucke BUTTON, um aufzuheben.",
 		"nights_survived": "NUMBER Nächte Uberlebt",
 		"you_died": "Du Bist Gestorben."
 	},

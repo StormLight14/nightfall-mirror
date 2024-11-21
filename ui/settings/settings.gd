@@ -7,7 +7,7 @@ func _ready():
 	
 func set_labels():
 	%LanguageLabel.text = Text.game_text[Settings.language]["settings_language"] + ": "
-	%ShowHintsCheck.text = Text.game_text[Settings.language]["settings_show_hints"] + ": "
+	%ShowHintsLabel.text = Text.game_text[Settings.language]["settings_show_hints"] + ": "
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -17,3 +17,6 @@ func _process(delta: float) -> void:
 func _on_language_select_item_selected(index: int) -> void:
 	Settings.language = index
 	Signals.language_changed.emit()
+
+func _on_show_hints_check_toggled(toggled_on: bool) -> void:
+	Settings.show_hints = toggled_on

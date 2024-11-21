@@ -23,6 +23,7 @@ UI="*res://globals/UI.gd"
 Audio="*res://globals/Audio.tscn"
 Text="*res://globals/Text.gd"
 Signals="*res://globals/Signals.gd"
+Fade="*res://globals/Fade.tscn"
 
 [display]
 

@@ -116,4 +116,4 @@ func _on_pickup_area_area_exited(area: Area2D) -> void:
 
 func _on_hurtbox_area_area_entered(area: Area2D) -> void:
 	# player dies
-	Fade.fade_out()
+	Fade.player_died()

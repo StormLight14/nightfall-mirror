@@ -61,7 +61,7 @@ script = ExtResource("1_efluf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2l0nd")
 animation = &"moving"
-frame_progress = 0.250656
+frame_progress = 0.0922576
 
 [node name="AttackDelay" type="Timer" parent="."]
 unique_name_in_owner = true

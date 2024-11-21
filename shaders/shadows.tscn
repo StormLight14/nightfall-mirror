@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbnp4tsiafw0a"]
+
+[ext_resource type="Shader" path="res://shaders/ShadowShader.gdshader" id="1_42qyt"]
+
+[sub_resource type="Gradient" id="Gradient_c8bgu"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_chn1i"]
+gradient = SubResource("Gradient_c8bgu")
+fill_to = Vector2(0.466049, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifjts"]
+shader = ExtResource("1_42qyt")
+shader_parameter/color = Color(0, 0, 0.341176, 0.109804)
+shader_parameter/angle = 268.831
+shader_parameter/max_dist = 20.0
+shader_parameter/gradientTexture = SubResource("GradientTexture2D_chn1i")
+
+[node name="Shadows" type="Polygon2D"]
+material = SubResource("ShaderMaterial_ifjts")

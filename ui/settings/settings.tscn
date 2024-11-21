@@ -37,4 +37,18 @@ popup/item_3/id = 3
 popup/item_4/text = "Spanish (ES)"
 popup/item_4/id = 4
 
+[node name="ShowHints" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ShowHintsLabel" type="Label" parent="VBoxContainer/ShowHints"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Show Hints:"
+
+[node name="ShowHintsCheck" type="CheckButton" parent="VBoxContainer/ShowHints"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+
 [connection signal="item_selected" from="VBoxContainer/Language/LanguageSelect" to="." method="_on_language_select_item_selected"]

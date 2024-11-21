@@ -5,7 +5,7 @@ enum {
 	ATTACKING
 }
 
-const SPEED = 12500.0
+const SPEED = 8000.0
 
 var state := STILL
 var player: CharacterBody2D = null
@@ -19,6 +19,7 @@ func handle_states(delta) -> void:
 		STILL:
 			pass
 		ATTACKING:
+			%AnimatedSprite2D.play("moving")
 			var direction := Vector2.ZERO
 			if player:
 				direction = (player.global_position - global_position).normalized()

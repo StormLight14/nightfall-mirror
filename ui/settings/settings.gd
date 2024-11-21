@@ -1,7 +1,7 @@
 extends MarginContainer
 
 func _ready():
-	Settings.language_changed.connect(set_labels)
+	Signals.language_changed.connect(set_labels)
 	set_labels()
 	%LanguageSelect.selected = Settings.language
 	
@@ -15,4 +15,4 @@ func _process(delta: float) -> void:
 
 func _on_language_select_item_selected(index: int) -> void:
 	Settings.language = index
-	Settings.language_changed.emit()
+	Signals.language_changed.emit()

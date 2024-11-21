@@ -35,6 +35,9 @@ func handle_states(delta: float):
 			velocity = -direction * ATTACK_SPEED * 3 * delta
 		ATTACKING:
 			velocity = direction * ATTACK_SPEED * delta
+			
+func despawn() -> void:
+	queue_free()
 
 func _on_follow_area_body_entered(body: Node2D) -> void:
 	player = body
@@ -65,8 +68,7 @@ func _on_attack_timer_timeout() -> void:
 
 func _on_flee_timer_timeout() -> void:
 	if state == FLEEING:
-		state = STILL
-
+		despawn()
 
 func _on_pause_timer_timeout() -> void:
 	%FleeTimer.start()

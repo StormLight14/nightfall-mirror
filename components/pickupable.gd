@@ -8,4 +8,4 @@ extends Node
 
 func _ready():
 	if is_shapeshifter:
-		$Sprite2D.modulate = Color(1, 1, 1, 0.725)
+		$Sprite2D.modulate = Color(0.7, 0.7, 0.7, 1)

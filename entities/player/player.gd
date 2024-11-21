@@ -78,7 +78,7 @@ func hotbar_selection() -> void:
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	var hint := area.get_parent().get_node("Hint")
 	if hint and Settings.show_hints:
-		hint.visible = true  # Show the hint for this area
+		hint.visible = true  # show the hint for this area
 	
 	# hide the hint for the previously picked-up object
 	if pickupable_object:

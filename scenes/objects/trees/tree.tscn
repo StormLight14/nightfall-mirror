@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf8n6ocu1ce17"]
+[gd_scene load_steps=5 format=3 uid="uid://bf8n6ocu1ce17"]
 
 [ext_resource type="Texture2D" uid="uid://bysx5ea3q23g3" path="res://scenes/objects/trees/pine1.png" id="1_yo22k"]
 [ext_resource type="PackedScene" uid="uid://bbnp4tsiafw0a" path="res://shaders/shadows.tscn" id="2_q3wyo"]
@@ -7,11 +7,14 @@
 radius = 4.0
 height = 12.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s3hyw"]
+polygon = PackedVector2Array(-5, -2, 2, -2, 6, 3, 6, 6, 3, 9, -5, 9, -8, 7, -8, 3)
+
 [node name="Tree" type="StaticBody2D"]
 
 [node name="Shadows" parent="." instance=ExtResource("2_q3wyo")]
 visible = false
-polygon = PackedVector2Array(0, -54, -13, -12, 13, -13)
+position = Vector2(-3, -70)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_yo22k")
@@ -20,3 +23,8 @@ offset = Vector2(0, -32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_3g54j")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+position = Vector2(1, -4)
+occluder = SubResource("OccluderPolygon2D_s3hyw")

@@ -291,7 +291,6 @@ color = Color(0.501961, 0.501961, 0.501961, 1)
 unique_name_in_owner = true
 rotation = -0.897099
 energy = 0.5
-shadow_enabled = true
 shadow_filter = 1
 
 [node name="Tilesets" type="Node2D" parent="."]

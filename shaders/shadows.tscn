@@ -17,3 +17,4 @@ shader_parameter/gradientTexture = SubResource("GradientTexture2D_chn1i")
 
 [node name="Shadows" type="Polygon2D"]
 material = SubResource("ShaderMaterial_ifjts")
+polygon = PackedVector2Array(192, -192, 192, 264, -189, 265, -189, -193)

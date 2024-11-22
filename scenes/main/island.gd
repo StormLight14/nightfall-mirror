@@ -37,7 +37,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_night_timer_timeout() -> void:
 	is_day = true
 	Player.nights_survived += 1
-	Player.night_ended.emit()
+	Signals.night_ended.emit()
 	%AnimationPlayer.play("turn_day")
 
 func _on_day_timer_timeout() -> void:

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://ctnt18khmkkxd"]
+
+[node name="StalkerSpawnPoint" type="Marker2D"]

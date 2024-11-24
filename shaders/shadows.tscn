@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbnp4tsiafw0a"]
+[gd_scene load_steps=6 format=3 uid="uid://bbnp4tsiafw0a"]
 
 [ext_resource type="Shader" path="res://shaders/ShadowShader.gdshader" id="1_42qyt"]
+[ext_resource type="Script" path="res://shaders/shadows.gd" id="2_bw1mn"]
 
 [sub_resource type="Gradient" id="Gradient_c8bgu"]
 
@@ -12,9 +13,10 @@ fill_to = Vector2(0.466049, 0)
 shader = ExtResource("1_42qyt")
 shader_parameter/color = Color(0, 0, 0.341176, 0.109804)
 shader_parameter/angle = 268.831
-shader_parameter/max_dist = 20.0
+shader_parameter/max_dist = 30.0
 shader_parameter/gradientTexture = SubResource("GradientTexture2D_chn1i")
 
 [node name="Shadows" type="Polygon2D"]
 material = SubResource("ShaderMaterial_ifjts")
 polygon = PackedVector2Array(192, -192, 192, 264, -189, 265, -189, -193)
+script = ExtResource("2_bw1mn")

@@ -40,6 +40,7 @@ mouse_cursor/custom_image="res://ui/cursor.png"
 InventorySlot="to iterate over all inventory slots"
 Player="Only for Player node"
 Island=""
+StalkerSpawnPoint=""
 
 [gui]
 
@@ -153,6 +154,7 @@ hotbar_down={
 2d_physics/layer_5="PlayerHitbox"
 2d_physics/layer_6="PickupableArea"
 2d_physics/layer_7="PickupArea"
+2d_physics/layer_8="BlockSpawnArea"
 
 [rendering]
 

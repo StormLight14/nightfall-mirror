@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cwpbcq6loe2e2"]
+[gd_scene load_steps=18 format=4 uid="uid://cwpbcq6loe2e2"]
 
 [ext_resource type="PackedScene" uid="uid://dnl4avpgx1x7o" path="res://entities/player/player.tscn" id="1_7ld21"]
 [ext_resource type="Script" path="res://scenes/main/island.gd" id="1_o107c"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bs0ai7mitopg" path="res://tilesets/path.png" id="4_g7mkf"]
 [ext_resource type="PackedScene" uid="uid://bf8n6ocu1ce17" path="res://scenes/objects/trees/tree.tscn" id="5_f4vhq"]
 [ext_resource type="PackedScene" uid="uid://bb0pwqikwri2c" path="res://scenes/objects/rocks/rock.tscn" id="5_l7ouf"]
+[ext_resource type="PackedScene" uid="uid://ctnt18khmkkxd" path="res://entities/stalker/stalker_spawn_point.tscn" id="8_2677o"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k5adq"]
 light_mode = 2
@@ -357,6 +358,14 @@ position = Vector2(-34, 34)
 
 [node name="Pickupable" parent="Objects/Rock8" index="1"]
 is_shapeshifter = true
+
+[node name="CreatureSpawns" type="Node2D" parent="."]
+
+[node name="StalkerSpawnPoint" parent="CreatureSpawns" instance=ExtResource("8_2677o")]
+position = Vector2(-232, 1)
+
+[node name="StalkerSpawnPoint2" parent="CreatureSpawns" instance=ExtResource("8_2677o")]
+position = Vector2(308, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

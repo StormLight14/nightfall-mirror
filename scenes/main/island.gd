@@ -19,6 +19,18 @@ func _process(_delta) -> void:
 	if Input.is_action_pressed("rotate_sun"):
 		%Sun.rotation_degrees += 0.5
 
+func handle_creature_spawns() -> void:
+	var spawn_points: Array[Area2D] = []
+	for spawn_point in get_tree().get_nodes_in_group("StalkerSpawnPoint"):
+		if not spawn_point.block_spawn:
+			spawn_points.push_back(spawn_point)
+	
+	if len(spawn_points):
+		var creature_location := spawn_points[randi_range(0, len(spawn_points) - 1)].global_position
+		var stalker := preload("res://entities/stalker/stalker.tscn").instantiate()
+		stalker.global_position = creature_location
+		$Objects.add_child(stalker)
+
 func daytime() -> void:
 	%Sun.energy = 0.5
 	%LevelLighting.color = Color(0.5, 0.5, 0.5, 1.0)
@@ -33,6 +45,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	elif anim_name == "turn_night":
 		%NightTimer.start() # night ends when this timer finishes
 		is_day = false
+		handle_creature_spawns()
 
 func _on_night_timer_timeout() -> void:
 	is_day = true

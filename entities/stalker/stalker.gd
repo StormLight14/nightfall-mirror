@@ -7,7 +7,7 @@ enum {
 	ATTACKING
 }
 
-const FOLLOW_SPEED := 500.0
+const FOLLOW_SPEED := 450.0
 const ATTACK_SPEED := 4250.0
 
 var state := STILL

@@ -21,11 +21,9 @@ position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_3g54j")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
 position = Vector2(1, -4)
 occluder = SubResource("OccluderPolygon2D_s3hyw")
 
 [node name="Shadows" parent="." instance=ExtResource("2_q3wyo")]
-visible = false
 light_mask = 0
 visibility_layer = 16

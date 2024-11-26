@@ -285,12 +285,12 @@ script = ExtResource("1_o107c")
 
 [node name="LevelLighting" type="CanvasModulate" parent="."]
 unique_name_in_owner = true
-color = Color(0.501961, 0.501961, 0.501961, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Sun" type="DirectionalLight2D" parent="."]
 unique_name_in_owner = true
 rotation = -0.897099
-energy = 0.5
+energy = 0.0
 shadow_filter = 1
 
 [node name="Tilesets" type="Node2D" parent="."]
@@ -319,9 +319,6 @@ y_sort_enabled = true
 [node name="Player" parent="Objects" instance=ExtResource("1_7ld21")]
 unique_name_in_owner = true
 position = Vector2(7, 11)
-
-[node name="NightLight" parent="Objects/Player" index="0"]
-energy = 0.0
 
 [node name="Hotbar" parent="Objects/Player/GameUI" index="1"]
 offset_left = 0.0

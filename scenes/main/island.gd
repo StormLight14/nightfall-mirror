@@ -2,13 +2,12 @@ extends Node2D
 
 var is_day = true
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%Grass.update_full_tileset()
 	%Path.update_full_tileset()
 	daytime()
-	%AnimationPlayer.speed_scale = 10 # for testing night
-	%AnimationPlayer.play("turn_night")
+	%AnimationPlayer.speed_scale = 15 # for testing night cycle
+	_on_day_timer_timeout() # to turn night instantly
 
 func _process(_delta) -> void:
 	if Input.is_action_just_pressed("turn_day"):
@@ -45,6 +44,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	elif anim_name == "turn_night":
 		%NightTimer.start() # night ends when this timer finishes
 		is_day = false
+		Signals.night_started.emit()
 		handle_creature_spawns()
 
 func _on_night_timer_timeout() -> void:
@@ -52,6 +52,8 @@ func _on_night_timer_timeout() -> void:
 	Player.nights_survived += 1
 	Signals.night_ended.emit()
 	%AnimationPlayer.play("turn_day")
+	Signals.turning_day.emit(%AnimationPlayer.current_animation_length / %AnimationPlayer.speed_scale)
 
 func _on_day_timer_timeout() -> void:
 	%AnimationPlayer.play("turn_night")
+	Signals.turning_night.emit(%AnimationPlayer.current_animation_length / %AnimationPlayer.speed_scale)

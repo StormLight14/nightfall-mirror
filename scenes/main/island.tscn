@@ -480,10 +480,18 @@ rotation = -0.897099
 energy = 0.5
 shadow_filter = 1
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Shadows" parent="CanvasLayer" instance=ExtResource("2_8pjwa")]
+position = Vector2(-6, -269)
+scale = Vector2(5.72178, 5.72178)
+polygon = PackedVector2Array(192, -192, 192, 36.4299, 192, 264, -189, 265, -189, -193)
+
 [node name="Tilesets" type="Node2D" parent="."]
 
 [node name="Grass" type="TileMapLayer" parent="Tilesets"]
 unique_name_in_owner = true
+visible = false
 light_mask = 0
 material = SubResource("CanvasItemMaterial_k5adq")
 position = Vector2(88, -67)
@@ -492,8 +500,8 @@ tile_set = SubResource("TileSet_t0bn7")
 script = ExtResource("2_f2mfn")
 
 [node name="Dirt" type="TileMapLayer" parent="Tilesets"]
+visible = false
 material = SubResource("CanvasItemMaterial_r3xp8")
-tile_map_data = PackedByteArray("AAD1/wgAAAACAAEAAAD2/wgAAAACAAEAAAD2/wkAAAACAAEAAAD1/wkAAAACAAEAAAD0/wkAAAACAAEAAAD0/wgAAAACAAEAAAD0/wcAAAACAAEAAAD1/wcAAAACAAEAAAD2/wcAAAACAAEAAAD2/woAAAACAAEAAAD1/woAAAACAAEAAAD0/woAAAACAAEAAAD2/wsAAAACAAEAAAD1/wsAAAACAAEAAAD0/wsAAAACAAEAAAD2/wwAAAACAAEAAAD1/wwAAAACAAEAAAD0/wwAAAACAAEAAAD3/woAAAACAAEAAAD3/wsAAAACAAEAAAD3/wkAAAACAAEAAAD3/wgAAAACAAEAAAD3/wcAAAACAAEAAAD4/wgAAAACAAEAAAD4/wkAAAACAAEAAAD4/wcAAAACAAEAAADz/wYAAAACAAEAAAD0/wYAAAACAAEAAADz/wcAAAACAAEAAADy/wcAAAACAAEAAADy/wYAAAABAAEAAADy/wUAAAABAAMAAADz/wUAAAABAAEAAAD0/wUAAAACAAEAAADz/wgAAAACAAEAAADy/wgAAAACAAEAAADz/wkAAAACAAEAAADy/wkAAAACAAEAAADz/woAAAACAAEAAADy/woAAAACAAEAAADz/wsAAAACAAEAAADy/wsAAAACAAEAAADz/wwAAAACAAEAAADy/wwAAAACAAEAAAD0/w0AAAACAAEAAADz/w0AAAACAAEAAADy/w0AAAACAAIAAAD0/w4AAAABAAIAAADz/w4AAAABAAIAAADy/w4AAAAAAAIAAAD1/w0AAAACAAEAAAD1/w4AAAABAAIAAAD2/w0AAAACAAEAAAD2/w4AAAABAAIAAAD3/w0AAAACAAEAAAD3/w4AAAABAAIAAAD3/wwAAAACAAEAAAD4/w0AAAACAAEAAAD4/w4AAAABAAIAAAD4/wwAAAACAAEAAAD5/w0AAAACAAEAAAD5/w4AAAABAAIAAAD5/wwAAAACAAEAAAD6/w0AAAADAAEAAAD6/w4AAAADAAMAAAD6/wwAAAACAAEAAAD4/wsAAAACAAEAAAD5/wsAAAACAAEAAAD6/wsAAAACAAEAAAD4/woAAAACAAEAAAD5/woAAAACAAEAAAD6/woAAAACAAEAAAD5/wkAAAACAAEAAAD6/wkAAAACAAEAAAD5/wgAAAACAAEAAAD6/wgAAAACAAEAAAD5/wcAAAACAAEAAAD6/wcAAAACAAEAAAD4/wYAAAACAAEAAAD5/wYAAAACAAEAAAD6/wYAAAACAAAAAAD4/wUAAAACAAEAAAD5/wUAAAACAAAAAAD6/wUAAAAAAAAAAAD3/wYAAAACAAEAAAD3/wUAAAACAAEAAAD2/wYAAAACAAEAAAD2/wUAAAACAAEAAAD1/wYAAAACAAEAAAD1/wUAAAACAAEAAADx/w0AAAAAAAIAAADx/wwAAAABAAAAAADx/wsAAAABAAAAAADx/woAAAABAAAAAADx/wkAAAABAAAAAADx/wgAAAABAAAAAADx/wcAAAABAAAAAADx/wYAAAABAAMAAADz/wQAAAABAAMAAAD0/wQAAAADAAAAAAD1/wQAAAADAAAAAAD2/wQAAAADAAAAAAD3/wQAAAADAAAAAAD4/wQAAAADAAAAAAD5/wQAAAAAAAAAAAD7/wcAAAADAAIAAAD7/wgAAAADAAIAAAD7/wYAAAAAAAAAAAD7/wkAAAADAAIAAAD7/woAAAADAAIAAAD7/wsAAAADAAIAAAD7/wwAAAADAAIAAAD7/w0AAAADAAMAAAA=")
 tile_set = SubResource("TileSet_fcp74")
 script = ExtResource("2_f2mfn")
 
@@ -508,7 +516,6 @@ script = ExtResource("2_f2mfn")
 [node name="BorderlessGrass" type="TileMapLayer" parent="Tilesets"]
 visible = false
 material = SubResource("CanvasItemMaterial_6aw37")
-tile_map_data = PackedByteArray("AAD1/wgAAAACAAEAAAD2/wgAAAACAAEAAAD2/wkAAAACAAEAAAD1/wkAAAACAAEAAAD0/wkAAAABAAAAAAD0/wgAAAABAAAAAAD0/wcAAAABAAMAAAD1/wcAAAADAAAAAAD2/wcAAAADAAAAAAD2/woAAAACAAEAAAD1/woAAAACAAEAAAD0/woAAAABAAAAAAD2/wsAAAABAAIAAAD1/wsAAAABAAIAAAD0/wsAAAAAAAIAAAD3/woAAAACAAEAAAD3/wsAAAABAAIAAAD3/wkAAAACAAEAAAD4/woAAAADAAIAAAD4/wsAAAADAAMAAAD4/wkAAAADAAIAAAD3/wgAAAACAAEAAAD4/wgAAAADAAIAAAD3/wcAAAADAAAAAAD4/wcAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_pl3ab")
 script = ExtResource("2_f2mfn")
 
@@ -530,6 +537,39 @@ offset_bottom = 0.0
 
 [node name="Tree" parent="Objects" instance=ExtResource("5_f4vhq")]
 position = Vector2(46, -14)
+
+[node name="Tree2" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(218, -28)
+
+[node name="Tree3" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(157, 9)
+
+[node name="Tree5" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(201, 54)
+
+[node name="Tree6" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(276, 28)
+
+[node name="Tree7" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(325, -18)
+
+[node name="Tree8" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(272, -70)
+
+[node name="Tree9" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(172, -67)
+
+[node name="Tree10" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(220, -100)
+
+[node name="Tree11" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(135, -104)
+
+[node name="Tree12" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(64, -83)
+
+[node name="Tree4" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(105, -46)
 
 [node name="Rock" parent="Objects" instance=ExtResource("5_l7ouf")]
 position = Vector2(56, 104)
@@ -583,11 +623,6 @@ one_shot = true
 unique_name_in_owner = true
 wait_time = 30.0
 one_shot = true
-
-[node name="Shadows" parent="." instance=ExtResource("2_8pjwa")]
-position = Vector2(-24, -288)
-scale = Vector2(5.72178, 5.72178)
-polygon = PackedVector2Array(192, -192, 192, 36.4299, 192, 264, -189, 265, -189, -193)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="NightTimer" to="." method="_on_night_timer_timeout"]

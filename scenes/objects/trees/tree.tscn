@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf8n6ocu1ce17"]
+[gd_scene load_steps=4 format=3 uid="uid://bf8n6ocu1ce17"]
 
 [ext_resource type="Texture2D" uid="uid://bysx5ea3q23g3" path="res://scenes/objects/trees/pine1.png" id="1_yo22k"]
-[ext_resource type="PackedScene" uid="uid://bbnp4tsiafw0a" path="res://shaders/shadows.tscn" id="2_q3wyo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3g54j"]
 radius = 4.0
@@ -23,7 +22,3 @@ shape = SubResource("CapsuleShape2D_3g54j")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2(1, -4)
 occluder = SubResource("OccluderPolygon2D_s3hyw")
-
-[node name="Shadows" parent="." instance=ExtResource("2_q3wyo")]
-light_mask = 0
-visibility_layer = 16

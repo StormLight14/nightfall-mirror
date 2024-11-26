@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=4 uid="uid://cwpbcq6loe2e2"]
+[gd_scene load_steps=19 format=4 uid="uid://cwpbcq6loe2e2"]
 
 [ext_resource type="PackedScene" uid="uid://dnl4avpgx1x7o" path="res://entities/player/player.tscn" id="1_7ld21"]
 [ext_resource type="Script" path="res://scenes/main/island.gd" id="1_o107c"]
+[ext_resource type="PackedScene" uid="uid://bbnp4tsiafw0a" path="res://shaders/shadows.tscn" id="2_8pjwa"]
 [ext_resource type="Script" path="res://custom_nodes/TileMapDual.gd" id="2_f2mfn"]
 [ext_resource type="Texture2D" uid="uid://cpa6wj6vxji4r" path="res://tilesets/grass.png" id="2_mv3iw"]
 [ext_resource type="Texture2D" uid="uid://bs0ai7mitopg" path="res://tilesets/path.png" id="4_g7mkf"]
@@ -285,12 +286,12 @@ script = ExtResource("1_o107c")
 
 [node name="LevelLighting" type="CanvasModulate" parent="."]
 unique_name_in_owner = true
-color = Color(0, 0, 0, 1)
+color = Color(0.501961, 0.501961, 0.501961, 1)
 
 [node name="Sun" type="DirectionalLight2D" parent="."]
 unique_name_in_owner = true
 rotation = -0.897099
-energy = 0.0
+energy = 0.5
 shadow_filter = 1
 
 [node name="Tilesets" type="Node2D" parent="."]
@@ -319,6 +320,9 @@ y_sort_enabled = true
 [node name="Player" parent="Objects" instance=ExtResource("1_7ld21")]
 unique_name_in_owner = true
 position = Vector2(7, 11)
+
+[node name="NightLight" parent="Objects/Player" index="0"]
+energy = 0.0
 
 [node name="Hotbar" parent="Objects/Player/GameUI" index="1"]
 offset_left = 0.0
@@ -381,6 +385,11 @@ one_shot = true
 unique_name_in_owner = true
 wait_time = 30.0
 one_shot = true
+
+[node name="Shadows" parent="." instance=ExtResource("2_8pjwa")]
+position = Vector2(-11.9999, -303)
+scale = Vector2(5.72178, 5.72178)
+polygon = PackedVector2Array(192, -192, 192, 36.4299, 192, 264, -189, 265, -189, -193)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="NightTimer" to="." method="_on_night_timer_timeout"]

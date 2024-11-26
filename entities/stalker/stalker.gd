@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	if paused:
 		velocity = Vector2.ZERO
 	move_and_slide()
-	
+
 func handle_states(delta: float):
 	var direction := Vector2.ZERO
 	if player:

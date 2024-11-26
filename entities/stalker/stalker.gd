@@ -14,6 +14,9 @@ var state := STILL
 var player: CharacterBody2D = null
 var paused := false
 
+func _ready() -> void:
+	Signals.night_ended.connect(despawn)
+
 func _physics_process(delta: float) -> void:
 	handle_states(delta)
 	

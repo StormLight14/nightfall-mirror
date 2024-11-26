@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cwpbcq6loe2e2"]
+[gd_scene load_steps=23 format=4 uid="uid://cwpbcq6loe2e2"]
 
 [ext_resource type="PackedScene" uid="uid://dnl4avpgx1x7o" path="res://entities/player/player.tscn" id="1_7ld21"]
 [ext_resource type="Script" path="res://scenes/main/island.gd" id="1_o107c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://custom_nodes/TileMapDual.gd" id="2_f2mfn"]
 [ext_resource type="Texture2D" uid="uid://cpa6wj6vxji4r" path="res://tilesets/grass.png" id="2_mv3iw"]
 [ext_resource type="Texture2D" uid="uid://bs0ai7mitopg" path="res://tilesets/path.png" id="4_g7mkf"]
+[ext_resource type="Texture2D" uid="uid://b8s70u5aqwnmb" path="res://tilesets/grass-borderless.png" id="5_1ew0g"]
 [ext_resource type="PackedScene" uid="uid://bf8n6ocu1ce17" path="res://scenes/objects/trees/tree.tscn" id="5_f4vhq"]
 [ext_resource type="PackedScene" uid="uid://bb0pwqikwri2c" path="res://scenes/objects/rocks/rock.tscn" id="5_l7ouf"]
 [ext_resource type="PackedScene" uid="uid://ctnt18khmkkxd" path="res://entities/stalker/stalker_spawn_point.tscn" id="8_2677o"]
@@ -193,6 +194,98 @@ terrain_set_0/terrain_0/name = "Path"
 terrain_set_0/terrain_0/color = Color(0.535549, 0.294406, 0.41319, 1)
 sources/0 = SubResource("TileSetAtlasSource_11d7u")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6aw37"]
+light_mode = 2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4fld"]
+texture = ExtResource("5_1ew0g")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/bottom_right_corner = 0
+1:0/0/terrains_peering_bit/top_right_corner = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrains_peering_bit/bottom_right_corner = 0
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/bottom_left_corner = 0
+2:0/0/terrains_peering_bit/left_side = 0
+2:0/0/terrains_peering_bit/top_left_corner = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrains_peering_bit/bottom_right_corner = 0
+3:0/0/terrains_peering_bit/bottom_side = 0
+3:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrains_peering_bit/bottom_right_corner = 0
+0:1/0/terrains_peering_bit/top_left_corner = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrains_peering_bit/right_side = 0
+1:1/0/terrains_peering_bit/bottom_right_corner = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0/terrains_peering_bit/bottom_left_corner = 0
+1:1/0/terrains_peering_bit/top_right_corner = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/terrains_peering_bit/right_side = 0
+2:1/0/terrains_peering_bit/bottom_right_corner = 0
+2:1/0/terrains_peering_bit/bottom_side = 0
+2:1/0/terrains_peering_bit/bottom_left_corner = 0
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_left_corner = 0
+2:1/0/terrains_peering_bit/top_side = 0
+2:1/0/terrains_peering_bit/top_right_corner = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrains_peering_bit/bottom_left_corner = 0
+3:1/0/terrains_peering_bit/left_side = 0
+3:1/0/terrains_peering_bit/top_left_corner = 0
+3:1/0/terrains_peering_bit/top_side = 0
+3:1/0/terrains_peering_bit/top_right_corner = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrains_peering_bit/top_right_corner = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrains_peering_bit/top_left_corner = 0
+1:2/0/terrains_peering_bit/top_side = 0
+1:2/0/terrains_peering_bit/top_right_corner = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrains_peering_bit/right_side = 0
+2:2/0/terrains_peering_bit/bottom_right_corner = 0
+2:2/0/terrains_peering_bit/top_left_corner = 0
+2:2/0/terrains_peering_bit/top_side = 0
+2:2/0/terrains_peering_bit/top_right_corner = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+3:2/0/terrains_peering_bit/bottom_left_corner = 0
+3:2/0/terrains_peering_bit/left_side = 0
+3:2/0/terrains_peering_bit/top_left_corner = 0
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/terrains_peering_bit/bottom_right_corner = 0
+2:3/0 = 0
+2:3/0/terrain_set = 0
+2:3/0/terrains_peering_bit/bottom_left_corner = 0
+2:3/0/terrains_peering_bit/top_right_corner = 0
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrains_peering_bit/top_left_corner = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pl3ab"]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "BorderlessGrass"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_p4fld")
+
 [sub_resource type="Animation" id="Animation_lcy6d"]
 resource_name = "turn_day"
 length = 180.0
@@ -312,6 +405,11 @@ visible = false
 material = SubResource("CanvasItemMaterial_khc0q")
 tile_map_data = PackedByteArray("AAABAAUAAAADAAAAAAAAAAUAAAACAAAAAAAEAAUAAAADAAAAAAADAAUAAAADAAAAAAACAAUAAAADAAAAAAD5/wAAAAACAAEAAAD6/wAAAAACAAEAAAD6/wEAAAACAAEAAAD5/wEAAAACAAEAAAD4/wEAAAACAAIAAAD4/wAAAAACAAEAAAD4////AAACAAEAAAD5////AAACAAEAAAD6////AAACAAAAAAD7/wAAAAACAAAAAAD7/wEAAAACAAEAAAD7////AAAAAAAAAAD7/wIAAAACAAEAAAD6/wIAAAACAAEAAAD5/wIAAAACAAIAAAD4/wIAAAAAAAIAAAD8/wEAAAACAAAAAAD8/wIAAAACAAEAAAD8/wAAAAAAAAAAAAD8/wMAAAACAAEAAAD7/wMAAAACAAEAAAD6/wMAAAACAAIAAAD5/wMAAAAAAAIAAAD9/wIAAAACAAAAAAD9/wMAAAACAAEAAAD9/wEAAAAAAAAAAAD9/wQAAAACAAEAAAD8/wQAAAACAAEAAAD7/wQAAAACAAIAAAD6/wQAAAAAAAIAAAD+/wMAAAACAAAAAAD+/wQAAAACAAEAAAD+/wIAAAAAAAAAAAD+/wUAAAACAAEAAAD9/wUAAAACAAEAAAD8/wUAAAACAAIAAAD7/wUAAAAAAAIAAAD+/wYAAAACAAEAAAD9/wYAAAACAAIAAAD8/wYAAAAAAAIAAAD//wUAAAACAAEAAAD//wYAAAACAAEAAAD//wQAAAACAAAAAAD//wMAAAAAAAAAAAAAAAYAAAACAAEAAAAAAAQAAAAAAAAAAAAAAAcAAAACAAEAAAD//wcAAAACAAEAAAD+/wcAAAACAAIAAAD9/wcAAAAAAAIAAAABAAYAAAACAAEAAAABAAcAAAACAAEAAAABAAgAAAABAAIAAAAAAAgAAAABAAIAAAD//wgAAAABAAIAAAD+/wgAAAAAAAIAAAACAAcAAAACAAEAAAACAAgAAAABAAIAAAACAAYAAAACAAEAAAADAAcAAAACAAEAAAADAAgAAAABAAIAAAADAAYAAAACAAEAAAAEAAcAAAACAAEAAAAEAAgAAAABAAIAAAAEAAYAAAACAAEAAAAFAAcAAAACAAEAAAAFAAgAAAABAAIAAAAFAAYAAAACAAEAAAAGAAcAAAACAAEAAAAGAAgAAAABAAIAAAAGAAYAAAACAAEAAAAHAAcAAAACAAEAAAAHAAgAAAABAAIAAAAHAAYAAAACAAEAAAAIAAcAAAACAAEAAAAIAAgAAAABAAIAAAAIAAYAAAACAAEAAAAJAAcAAAACAAEAAAAJAAgAAAABAAIAAAAJAAYAAAACAAEAAAAHAAUAAAADAAAAAAAIAAUAAAADAAAAAAAJAAUAAAADAAAAAAAGAAUAAAADAAAAAAAFAAUAAAADAAAAAAAKAAYAAAACAAEAAAAKAAcAAAACAAEAAAAKAAUAAAADAAAAAAAKAAgAAAABAAIAAAALAAcAAAACAAEAAAALAAgAAAABAAIAAAALAAYAAAACAAEAAAAMAAcAAAACAAEAAAAMAAgAAAABAAIAAAAMAAYAAAACAAEAAAANAAcAAAACAAEAAAANAAgAAAACAAIAAAANAAYAAAACAAEAAAAOAAcAAAACAAEAAAAOAAgAAAACAAEAAAAOAAYAAAACAAEAAAAMAAUAAAADAAAAAAANAAUAAAADAAAAAAAOAAUAAAADAAAAAAALAAUAAAADAAAAAAAPAAYAAAACAAAAAAAPAAcAAAACAAEAAAAPAAUAAAAAAAAAAAAPAAgAAAACAAEAAAAQAAYAAAAAAAAAAAAPAAkAAAACAAEAAAAOAAkAAAACAAIAAAANAAkAAAAAAAIAAAAQAAcAAAACAAAAAAAQAAgAAAACAAEAAAAQAAkAAAACAAEAAAARAAcAAAAAAAAAAAAQAAoAAAACAAEAAAAPAAoAAAACAAIAAAAOAAoAAAAAAAIAAAARAAgAAAACAAAAAAARAAkAAAACAAEAAAASAAkAAAACAAEAAAASAAoAAAACAAEAAAARAAoAAAACAAEAAAASAAgAAAADAAAAAAASAAsAAAABAAIAAAARAAsAAAABAAIAAAAQAAsAAAABAAIAAAAPAAsAAAAAAAIAAAATAAoAAAACAAEAAAATAAsAAAABAAIAAAATAAkAAAACAAEAAAAUAAoAAAACAAEAAAAUAAsAAAABAAIAAAAUAAkAAAACAAEAAAATAAgAAAADAAAAAAAUAAgAAAADAAAAAAAVAAkAAAACAAEAAAAVAAoAAAACAAEAAAAVAAgAAAADAAAAAAAWAAkAAAACAAEAAAAWAAoAAAACAAEAAAAWAAgAAAADAAAAAAAXAAkAAAADAAIAAAAXAAoAAAADAAIAAAAXAAgAAAAAAAAAAAAXAAsAAAADAAMAAAAWAAsAAAABAAIAAAAVAAsAAAABAAIAAAD4//7/AAACAAEAAAD5//7/AAACAAAAAAD6//7/AAAAAAAAAAD3/wAAAAACAAIAAAD3////AAACAAEAAAD3//7/AAACAAEAAAD3/wEAAAAAAAIAAAD2/wAAAAAAAAIAAAD2////AAACAAIAAAD2//7/AAACAAEAAAD2//3/AAACAAEAAAD3//3/AAACAAEAAAD4//3/AAACAAAAAAD5//3/AAAAAAAAAAD1////AAAAAAIAAAD1//7/AAACAAIAAAD1//3/AAACAAEAAAD1//z/AAACAAEAAAD2//z/AAACAAEAAAD3//z/AAACAAAAAAD4//z/AAAAAAAAAAD0//7/AAAAAAIAAAD0//3/AAABAAAAAAD0//z/AAABAAAAAAD0//v/AAABAAMAAAD1//v/AAADAAAAAAD2//v/AAADAAAAAAD3//v/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_q84vi")
+script = ExtResource("2_f2mfn")
+
+[node name="BorderlessGrass" type="TileMapLayer" parent="Tilesets"]
+material = SubResource("CanvasItemMaterial_6aw37")
+tile_set = SubResource("TileSet_pl3ab")
 script = ExtResource("2_f2mfn")
 
 [node name="Objects" type="Node2D" parent="."]

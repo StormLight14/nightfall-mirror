@@ -11,6 +11,7 @@ collision_mask = 4
 script = ExtResource("1_f30k0")
 
 [node name="BlockSpawnCollision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_0o6w2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -35,3 +35,5 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 
 func _on_attack_delay_timeout() -> void:
 	state = ATTACKING
+	$HitboxArea.monitorable = true
+	$HitboxArea.monitoring = true

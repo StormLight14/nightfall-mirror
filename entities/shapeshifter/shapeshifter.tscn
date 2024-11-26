@@ -56,7 +56,7 @@ animations = [{
 radius = 101.005
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ophyn"]
-size = Vector2(20, 30)
+size = Vector2(10, 11)
 
 [node name="Shapeshifter" type="CharacterBody2D"]
 script = ExtResource("1_efluf")
@@ -83,8 +83,11 @@ shape = SubResource("CircleShape2D_28dtd")
 [node name="HitboxArea" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 4
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_ophyn")
 
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]

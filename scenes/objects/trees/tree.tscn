@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf8n6ocu1ce17"]
+[gd_scene load_steps=5 format=3 uid="uid://bf8n6ocu1ce17"]
 
+[ext_resource type="Script" path="res://scenes/objects/trees/tree.gd" id="1_8x6wr"]
 [ext_resource type="Texture2D" uid="uid://bysx5ea3q23g3" path="res://scenes/objects/trees/pine1.png" id="1_yo22k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3g54j"]
@@ -10,6 +11,7 @@ height = 12.0
 polygon = PackedVector2Array(-4, -1, 1, -1, 5, 3, 5, 6, 2, 9, -5, 9, -8, 7, -8, 3)
 
 [node name="Tree" type="StaticBody2D"]
+script = ExtResource("1_8x6wr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_yo22k")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnl4avpgx1x7o"]
+[gd_scene load_steps=20 format=3 uid="uid://dnl4avpgx1x7o"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_sb3re"]
 [ext_resource type="Texture2D" uid="uid://dmgcxyrjg42bg" path="res://entities/player/player_down.png" id="2_3ee5f"]
@@ -83,6 +83,9 @@ height = 10.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0vhp"]
 size = Vector2(7, 15)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_c346u"]
+polygon = PackedVector2Array(-3, -11, -3, -3, 4, -3, 4, -11)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 4
 script = ExtResource("1_sb3re")
@@ -145,6 +148,10 @@ offset_right = 163.0
 offset_bottom = 26.0
 
 [node name="NightsSurvived" parent="GameUI" instance=ExtResource("8_0ob6a")]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, -2)
+occluder = SubResource("OccluderPolygon2D_c346u")
 
 [connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]
 [connection signal="area_exited" from="PickupArea" to="." method="_on_pickup_area_area_exited"]

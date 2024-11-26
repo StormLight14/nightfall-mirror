@@ -1,5 +1,7 @@
 extends Polygon2D
 
+@export var shadow_distance = 30
+
 func _ready() -> void:
 	Signals.turning_day.connect(turning_day)
 	Signals.turning_night.connect(turning_night)

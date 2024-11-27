@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://7rm38r62ddlr"]
+
+[ext_resource type="Script" path="res://entities/evil_unicorn/evil_unicorn.gd" id="1_1nl76"]
+[ext_resource type="Texture2D" uid="uid://cbb7hkmoomyjd" path="res://entities/evil_unicorn/evil_unicorn_static.png" id="2_nquhj"]
+
+[node name="EvilUnicorn" type="CharacterBody2D"]
+script = ExtResource("1_1nl76")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nquhj")

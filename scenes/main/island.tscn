@@ -503,18 +503,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_4w3r1"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Rain:material:shader_parameter/rain_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.8, 0.8, 0.8, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2jo8t"]
 _data = {
@@ -544,12 +532,12 @@ color = Color(1, 1, 1, 0)
 
 [node name="LevelLighting" type="CanvasModulate" parent="."]
 unique_name_in_owner = true
-color = Color(0, 0, 0, 1)
+color = Color(0.501961, 0.501961, 0.501961, 1)
 
 [node name="Sun" type="DirectionalLight2D" parent="."]
 unique_name_in_owner = true
 rotation = -0.897099
-energy = 0.0
+energy = 0.5
 shadow_filter = 1
 
 [node name="Tilesets" type="Node2D" parent="."]
@@ -590,6 +578,9 @@ y_sort_enabled = true
 [node name="Player" parent="Objects" instance=ExtResource("1_7ld21")]
 unique_name_in_owner = true
 position = Vector2(7, 11)
+
+[node name="NightLight" parent="Objects/Player" index="0"]
+energy = 0.0
 
 [node name="Hotbar" parent="Objects/Player/GameUI" index="1"]
 offset_left = 0.0

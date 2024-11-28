@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=4 uid="uid://cwpbcq6loe2e2"]
+[gd_scene load_steps=31 format=4 uid="uid://cwpbcq6loe2e2"]
 
 [ext_resource type="PackedScene" uid="uid://dnl4avpgx1x7o" path="res://entities/player/player.tscn" id="1_7ld21"]
 [ext_resource type="Script" path="res://scenes/main/island.gd" id="1_o107c"]
 [ext_resource type="PackedScene" uid="uid://bbnp4tsiafw0a" path="res://shaders/shadows.tscn" id="2_8pjwa"]
 [ext_resource type="Script" path="res://custom_nodes/TileMapDual.gd" id="2_f2mfn"]
 [ext_resource type="Texture2D" uid="uid://cpa6wj6vxji4r" path="res://tilesets/grass.png" id="2_mv3iw"]
+[ext_resource type="Shader" path="res://shaders/Rain.gdshader" id="3_p3ksm"]
 [ext_resource type="Texture2D" uid="uid://bqnyla2ffxo4s" path="res://tilesets/dirt.png" id="4_f5siq"]
 [ext_resource type="Texture2D" uid="uid://bs0ai7mitopg" path="res://tilesets/path.png" id="4_g7mkf"]
 [ext_resource type="Texture2D" uid="uid://b8s70u5aqwnmb" path="res://tilesets/grass-borderless.png" id="5_1ew0g"]
@@ -12,6 +13,20 @@
 [ext_resource type="PackedScene" uid="uid://bb0pwqikwri2c" path="res://scenes/objects/rocks/rock.tscn" id="5_l7ouf"]
 [ext_resource type="PackedScene" uid="uid://ctnt18khmkkxd" path="res://entities/stalker/stalker_spawn_point.tscn" id="8_2677o"]
 [ext_resource type="PackedScene" uid="uid://7rm38r62ddlr" path="res://entities/evil_unicorn/evil_unicorn.tscn" id="11_reqk3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ctrbk"]
+shader = ExtResource("3_p3ksm")
+shader_parameter/rain_amount = 590.0
+shader_parameter/near_rain_length = 0.05
+shader_parameter/far_rain_length = 0.05
+shader_parameter/near_rain_width = 0.8
+shader_parameter/far_rain_width = 0.4
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/base_rain_speed = 0.3
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 0.2
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k5adq"]
 light_mode = 2
@@ -420,6 +435,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.6, 0.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Rain:material:shader_parameter/rain_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 180),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.133333, 0.133333, 0.133333, 1), Color(0.8, 0.8, 0.8, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_p2to7"]
 resource_name = "turn_night"
@@ -461,9 +488,37 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0, 0.6]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Rain:material:shader_parameter/rain_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 180),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.8, 0.8, 0.8, 1), Color(0.133333, 0.133333, 0.133333, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4w3r1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Rain:material:shader_parameter/rain_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.8, 0.8, 0.8, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2jo8t"]
 _data = {
+"RESET": SubResource("Animation_4w3r1"),
 "turn_day": SubResource("Animation_lcy6d"),
 "turn_night": SubResource("Animation_p2to7")
 }
@@ -471,22 +526,31 @@ _data = {
 [node name="Island" type="Node2D" groups=["Island"]]
 script = ExtResource("1_o107c")
 
-[node name="LevelLighting" type="CanvasModulate" parent="."]
-unique_name_in_owner = true
-color = Color(0, 0, 0, 1)
-
-[node name="Sun" type="DirectionalLight2D" parent="."]
-unique_name_in_owner = true
-rotation = -0.897099
-energy = 0.0
-shadow_filter = 1
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Shadows" parent="CanvasLayer" instance=ExtResource("2_8pjwa")]
 position = Vector2(-6, -269)
 scale = Vector2(5.72178, 5.72178)
 polygon = PackedVector2Array(192, -192, 192, 36.4299, 192, 264, -189, 265, -189, -193)
+
+[node name="Rain" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_ctrbk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="LevelLighting" type="CanvasModulate" parent="."]
+unique_name_in_owner = true
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Sun" type="DirectionalLight2D" parent="."]
+unique_name_in_owner = true
+rotation = -0.897099
+energy = 0.5
+shadow_filter = 1
 
 [node name="Tilesets" type="Node2D" parent="."]
 
@@ -526,6 +590,9 @@ y_sort_enabled = true
 [node name="Player" parent="Objects" instance=ExtResource("1_7ld21")]
 unique_name_in_owner = true
 position = Vector2(7, 11)
+
+[node name="NightLight" parent="Objects/Player" index="0"]
+energy = 0.0
 
 [node name="Hotbar" parent="Objects/Player/GameUI" index="1"]
 offset_left = 0.0

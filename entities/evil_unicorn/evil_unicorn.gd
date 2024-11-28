@@ -9,3 +9,12 @@ func _physics_process(delta: float) -> void:
 
 func despawn() -> void:
 	queue_free()
+
+func _on_interact_area_body_entered(body: Node2D) -> void:
+	$Dialogue.text = "Press E to play my game."
+
+func _on_interact_area_body_exited(body: Node2D) -> void:
+	$Dialogue.text = ""
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	$DespawnTimer.start()

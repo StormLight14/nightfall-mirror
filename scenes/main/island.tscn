@@ -395,6 +395,9 @@ terrain_set_0/terrain_0/name = "BorderlessGrass"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_p4fld")
 
+[sub_resource type="Animation" id="Animation_4w3r1"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_lcy6d"]
 resource_name = "turn_day"
 length = 180.0
@@ -500,9 +503,6 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(0.8, 0.8, 0.8, 1), Color(0.0666667, 0.0666667, 0.0666667, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_4w3r1"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2jo8t"]
 _data = {

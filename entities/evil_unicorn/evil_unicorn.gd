@@ -3,7 +3,7 @@ extends CharacterBody2D
 var can_interact := false
 
 func _ready() -> void:
-	Signals.night_ended.connect(despawn)
+	Signals.night_ended.connect(start_despawn)
 
 func _physics_process(delta: float) -> void:
 	for player in get_tree().get_nodes_in_group("Player"):
@@ -11,9 +11,10 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("interact") && can_interact:
 		$Dialogue.text = "Have fun."
-		$InteractTimer.start()
+		%GambleUI.visible = true
+		start_despawn()
 
-func despawn() -> void:
+func start_despawn() -> void:
 	queue_free()
 
 func _on_interact_area_body_entered(body: Node2D) -> void:

@@ -29,6 +29,9 @@ func animations() -> void:
 		$AnimatedSprite2D.play("static_right")
 
 func movement(delta: float) -> void:
+	if not %GoMenuTimer.is_stopped():
+		return
+
 	var input_vector := Input.get_vector("left", "right", "up", "down")
 	var direction := input_vector.normalized()
 	velocity = direction * SPEED * delta

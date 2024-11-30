@@ -38,7 +38,6 @@ func add_to_inventory(item_id: String, item_amount: int) -> void:
 
 	print("WARNING: no space available in inventory.")
 
-  
 func _add_to_inventory_slot(slot_index: int, amount: int) -> void:
 	var item_data = inventory[slot_index][0]
 	var current_amount = inventory[slot_index][1]

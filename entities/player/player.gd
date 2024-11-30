@@ -10,6 +10,7 @@ var pickupable_item_id = null
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("static_down")
+	Signals.show_gamble_ui.connect(show_gamble_ui)
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
@@ -125,3 +126,7 @@ func _on_hurtbox_area_area_entered(area: Area2D) -> void:
 
 func _on_go_menu_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://ui/menus/main/main_menu.tscn")
+
+func show_gamble_ui() -> void:
+	if not %Inventory.visible:
+		%GambleUI.visible = true

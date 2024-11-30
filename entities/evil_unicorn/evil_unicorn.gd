@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("interact") && can_interact:
 		$Dialogue.text = "Have fun."
-		%GambleUI.visible = true
+		Signals.show_gamble_ui.emit()
 		start_despawn()
 
 func start_despawn() -> void:

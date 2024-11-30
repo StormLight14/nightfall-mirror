@@ -134,10 +134,12 @@ shape = SubResource("RectangleShape2D_v0vhp")
 
 [node name="GoMenuTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 wait_time = 2.5
 one_shot = true
 
 [node name="GameUI" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Inventory" parent="GameUI" instance=ExtResource("3_44mch")]
 unique_name_in_owner = true

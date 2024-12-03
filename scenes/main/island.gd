@@ -3,7 +3,6 @@ extends Node2D
 var is_day = true
 
 func _ready() -> void:
-	%Path.update_full_tileset()
 	%StartRainTimer.start()
 	daytime()
 	%AnimationPlayer.speed_scale = 15 # for testing night cycle

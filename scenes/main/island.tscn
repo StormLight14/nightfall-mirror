@@ -522,6 +522,7 @@ scale = Vector2(5.72178, 5.72178)
 polygon = PackedVector2Array(192, -192, 192, 36.4299, 192, 264, -189, 265, -189, -193)
 
 [node name="Rain" type="ColorRect" parent="CanvasLayer"]
+visible = false
 material = SubResource("ShaderMaterial_ctrbk")
 anchors_preset = 15
 anchor_right = 1.0
@@ -681,9 +682,19 @@ unique_name_in_owner = true
 wait_time = 30.0
 one_shot = true
 
+[node name="StartRainTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 95.0
+
+[node name="StopRainTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 35.0
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="NightTimer" to="." method="_on_night_timer_timeout"]
 [connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]
+[connection signal="timeout" from="StartRainTimer" to="." method="_on_start_rain_timer_timeout"]
+[connection signal="timeout" from="StopRainTimer" to="." method="_on_stop_rain_timer_timeout"]
 
 [editable path="Objects/Player"]
 [editable path="Objects/Rock8"]

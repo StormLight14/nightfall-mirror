@@ -5,6 +5,7 @@ var is_day = true
 func _ready() -> void:
 	%Grass.update_full_tileset()
 	%Path.update_full_tileset()
+	%StartRainTimer.start()
 	daytime()
 	%AnimationPlayer.speed_scale = 15 # for testing night cycle
 	_on_day_timer_timeout() # to turn night instantly
@@ -54,3 +55,10 @@ func _on_night_timer_timeout() -> void:
 func _on_day_timer_timeout() -> void:
 	%AnimationPlayer.play("turn_night")
 	Signals.turning_night.emit(%AnimationPlayer.current_animation_length / %AnimationPlayer.speed_scale)
+
+func _on_start_rain_timer_timeout() -> void:
+	if randi_range(0, 1) == 1:
+		%Rain.visible = true
+
+func _on_stop_rain_timer_timeout() -> void:
+	%Rain.visible = false

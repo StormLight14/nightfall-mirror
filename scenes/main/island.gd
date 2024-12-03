@@ -60,3 +60,4 @@ func _on_start_rain_timer_timeout() -> void:
 
 func _on_stop_rain_timer_timeout() -> void:
 	%Rain.visible = false
+	%StartRainTimer.start()

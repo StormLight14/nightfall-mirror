@@ -3,7 +3,6 @@ extends Node2D
 var is_day = true
 
 func _ready() -> void:
-	%Grass.update_full_tileset()
 	%Path.update_full_tileset()
 	%StartRainTimer.start()
 	daytime()

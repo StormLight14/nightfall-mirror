@@ -8,7 +8,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	for player in get_tree().get_nodes_in_group("Player"):
 		$Sprite2D.flip_h = player.global_position < global_position
-	
+
 	if Input.is_action_just_pressed("interact") && can_interact:
 		$Dialogue.text = "Have fun."
 		Signals.show_gamble_ui.emit()

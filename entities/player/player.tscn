@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dnl4avpgx1x7o"]
+[gd_scene load_steps=23 format=3 uid="uid://dnl4avpgx1x7o"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_sb3re"]
 [ext_resource type="Texture2D" uid="uid://dmgcxyrjg42bg" path="res://entities/player/player_down.png" id="2_3ee5f"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cwcxp6biq5lt1" path="res://entities/player/player_up.png" id="5_t62uw"]
 [ext_resource type="PackedScene" uid="uid://cik4vnx1ai6jm" path="res://ui/nights_survived.tscn" id="8_0ob6a"]
 [ext_resource type="PackedScene" uid="uid://djnx5is5oqurx" path="res://ui/gamble_ui.tscn" id="9_nuuaq"]
+[ext_resource type="PackedScene" uid="uid://b0fkfk0juke8x" path="res://ui/crafting/crafting.tscn" id="9_w6tei"]
 
 [sub_resource type="Gradient" id="Gradient_vxpyq"]
 interpolation_mode = 2
@@ -154,6 +155,10 @@ offset_right = 163.0
 offset_bottom = 26.0
 
 [node name="NightsSurvived" parent="GameUI" instance=ExtResource("8_0ob6a")]
+
+[node name="Crafting" parent="GameUI" instance=ExtResource("9_w6tei")]
+unique_name_in_owner = true
+visible = false
 
 [node name="GambleUI" parent="GameUI" instance=ExtResource("9_nuuaq")]
 unique_name_in_owner = true

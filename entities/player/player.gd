@@ -41,6 +41,7 @@ func movement(delta: float) -> void:
 func handle_ui_inputs() -> void:
 	if Input.is_action_just_pressed("inventory"):
 		%Inventory.visible = !%Inventory.visible
+		%Crafting.visible = !%Crafting.visible
 		%Hotbar.visible = !%Inventory.visible
 
 func interactions() -> void:

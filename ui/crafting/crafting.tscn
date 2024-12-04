@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0fkfk0juke8x"]
+
+[ext_resource type="Texture2D" uid="uid://gmeicxumvw0k" path="res://ui/crafting/crafting_background.png" id="1_j6e6k"]
+
+[node name="Crafting" type="Control"]
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = -5.0
+offset_top = 10.0
+offset_right = 85.0
+offset_bottom = 210.0
+texture = ExtResource("1_j6e6k")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = -5.0
+offset_top = 10.0
+offset_right = 75.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 6
+text = "Crafting"
+horizontal_alignment = 1
+vertical_alignment = 1

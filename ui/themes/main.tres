@@ -1,6 +1,17 @@
-[gd_resource type="Theme" format=3 uid="uid://cpbjuhg0ysfj"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cpbjuhg0ysfj"]
+
+[ext_resource type="StyleBox" uid="uid://clq8kdm1gg4ro" path="res://ui/buttons/hover_button.tres" id="1_csp02"]
+[ext_resource type="StyleBox" uid="uid://cottun7pnbydt" path="res://ui/buttons/normal_button.tres" id="1_eshr0"]
 
 [resource]
+Button/colors/font_focus_color = Color(1, 0.701961, 0.654902, 1)
+Button/colors/font_hover_color = Color(0.999976, 0.701723, 0.655386, 1)
+Button/colors/font_pressed_color = Color(1, 0.701961, 0.654902, 1)
+Button/styles/focus = ExtResource("1_csp02")
+Button/styles/hover = ExtResource("1_csp02")
+Button/styles/normal = ExtResource("1_eshr0")
+Button/styles/pressed = ExtResource("1_csp02")
 Label/font_sizes/font_size = 4
+Label/styles/normal = null
 OptionButton/font_sizes/font_size = 8
 PopupMenu/font_sizes/font_size = 8

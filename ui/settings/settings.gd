@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Control
 
 func _ready():
 	Signals.language_changed.connect(set_labels)

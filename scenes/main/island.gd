@@ -3,6 +3,8 @@ extends Node2D
 var is_day = true
 
 func _ready() -> void:
+	Signals.spawn_stalker.connect(spawn_stalker)
+	
 	%StartRainTimer.start()
 	daytime()
 	%AnimationPlayer.speed_scale = 15 # for testing night cycle
@@ -16,6 +18,9 @@ func _process(_delta) -> void:
 		nighttime()
 
 func handle_creature_spawns() -> void:
+	spawn_stalker()
+
+func spawn_stalker():
 	var spawn_points: Array[Area2D] = []
 	for spawn_point in get_tree().get_nodes_in_group("StalkerSpawnPoint"):
 		if not spawn_point.block_spawn:

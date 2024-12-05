@@ -162,7 +162,6 @@ visible = false
 
 [node name="GambleUI" parent="GameUI" instance=ExtResource("9_nuuaq")]
 unique_name_in_owner = true
-visible = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 light_mask = 2

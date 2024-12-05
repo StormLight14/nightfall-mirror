@@ -35,7 +35,7 @@ func movement(delta: float) -> void:
 
 	var input_vector := Input.get_vector("left", "right", "up", "down")
 	var direction := input_vector.normalized()
-	velocity = direction * SPEED * delta
+	velocity = direction * SPEED * delta * Player.speed_scale
 	move_and_slide()
 
 func handle_ui_inputs() -> void:
@@ -130,4 +130,4 @@ func _on_go_menu_timer_timeout() -> void:
 
 func show_gamble_ui() -> void:
 	if not %Inventory.visible:
-		%GambleUI.animation_player.play("visible")
+		%GambleUI.visible()

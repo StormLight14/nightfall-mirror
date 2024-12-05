@@ -7,8 +7,6 @@ var selected_hotbar_slot_id = 0 # 0, 1, 2, 3
 
 var nights_survived := 0
 
-var speed_scale = 1.0
-
 func _ready():
 	for _i in range(Player.INVENTORY_SIZE):
 		inventory.push_back(null)

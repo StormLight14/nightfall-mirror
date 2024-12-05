@@ -8,9 +8,14 @@ var active_pickup_areas := []
 var pickupable_object = null
 var pickupable_item_id = null
 
+var speed_scale = 1.0
+var brightness_scale = 1.0
+
 func _ready() -> void:
 	$AnimatedSprite2D.play("static_down")
 	Signals.show_gamble_ui.connect(show_gamble_ui)
+	Signals.set_speed_scale.connect(set_speed_scale)
+	Signals.set_brightness_scale.connect(set_brightness_scale)
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
@@ -35,7 +40,7 @@ func movement(delta: float) -> void:
 
 	var input_vector := Input.get_vector("left", "right", "up", "down")
 	var direction := input_vector.normalized()
-	velocity = direction * SPEED * delta * Player.speed_scale
+	velocity = direction * SPEED * delta * speed_scale
 	move_and_slide()
 
 func handle_ui_inputs() -> void:
@@ -79,6 +84,12 @@ func hotbar_selection() -> void:
 	elif Input.is_action_just_pressed("hotbar_up") && Player.selected_hotbar_slot_id < 4:
 		Player.selected_hotbar_slot_id += 1
 		Signals.changed_hotbar_selection.emit()
+
+func set_speed_scale(speed: float) -> void:
+	speed_scale = speed
+	
+func set_brightness_scale(brightness: float) -> void:
+	brightness_scale = brightness
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
 	var hint := area.get_parent().get_node("Hint")

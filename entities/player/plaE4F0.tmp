@@ -1,0 +1,183 @@
+[gd_scene load_steps=23 format=3 uid="uid://dnl4avpgx1x7o"]
+
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_sb3re"]
+[ext_resource type="Texture2D" uid="uid://dmgcxyrjg42bg" path="res://entities/player/player_down.png" id="2_3ee5f"]
+[ext_resource type="PackedScene" uid="uid://dahjht4pbwqqm" path="res://ui/inventory/inventory.tscn" id="3_44mch"]
+[ext_resource type="Texture2D" uid="uid://dj44sa5a5vx17" path="res://entities/player/player_left.png" id="3_gtm8e"]
+[ext_resource type="Texture2D" uid="uid://brd86db0f7d1t" path="res://entities/player/player_right.png" id="4_i1yiq"]
+[ext_resource type="PackedScene" uid="uid://dwqj00t0hm3mp" path="res://ui/inventory/hotbar.tscn" id="4_iq7yn"]
+[ext_resource type="Texture2D" uid="uid://cwcxp6biq5lt1" path="res://entities/player/player_up.png" id="5_t62uw"]
+[ext_resource type="PackedScene" uid="uid://cik4vnx1ai6jm" path="res://ui/nights_survived.tscn" id="8_0ob6a"]
+[ext_resource type="PackedScene" uid="uid://djnx5is5oqurx" path="res://ui/gamble_ui.tscn" id="9_nuuaq"]
+[ext_resource type="PackedScene" uid="uid://b0fkfk0juke8x" path="res://ui/crafting/crafting.tscn" id="9_w6tei"]
+
+[sub_resource type="Gradient" id="Gradient_vxpyq"]
+interpolation_mode = 2
+colors = PackedColorArray(0.374139, 0.374139, 0.374139, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rpo57"]
+gradient = SubResource("Gradient_vxpyq")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.790598, 0.217949)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuxxm"]
+atlas = ExtResource("2_3ee5f")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1wia"]
+atlas = ExtResource("3_gtm8e")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o30n"]
+atlas = ExtResource("4_i1yiq")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4soo2"]
+atlas = ExtResource("5_t62uw")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1t5r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuxxm")
+}],
+"loop": true,
+"name": &"static_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1wia")
+}],
+"loop": true,
+"name": &"static_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o30n")
+}],
+"loop": true,
+"name": &"static_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4soo2")
+}],
+"loop": true,
+"name": &"static_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewl3r"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m2dc2"]
+radius = 4.0
+height = 10.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0vhp"]
+size = Vector2(7, 15)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_c346u"]
+polygon = PackedVector2Array(-3, -11, -3, -3, 4, -3, 4, -11)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gtruh"]
+polygon = PackedVector2Array(8, -16, 8, -15, 9, -15, 9, -16)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 4
+script = ExtResource("1_sb3re")
+
+[node name="NightLight" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 2
+color = Color(0.281187, 0.281187, 0.281187, 1)
+energy = 0.6
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_rpo57")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h1t5r")
+animation = &"static_down"
+offset = Vector2(0, -12)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_ewl3r")
+
+[node name="PickupArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 64
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_m2dc2")
+debug_color = Color(0.623677, 0.382308, 0.938347, 0.42)
+
+[node name="HurtboxArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxArea"]
+position = Vector2(0.5, -11)
+shape = SubResource("RectangleShape2D_v0vhp")
+
+[node name="GoMenuTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+wait_time = 2.5
+one_shot = true
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Inventory" parent="GameUI" instance=ExtResource("3_44mch")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Hotbar" parent="GameUI" instance=ExtResource("4_iq7yn")]
+unique_name_in_owner = true
+offset_left = 23.0
+offset_top = 26.0
+offset_right = 163.0
+offset_bottom = 26.0
+
+[node name="NightsSurvived" parent="GameUI" instance=ExtResource("8_0ob6a")]
+
+[node name="Crafting" parent="GameUI" instance=ExtResource("9_w6tei")]
+unique_name_in_owner = true
+visible = false
+
+[node name="GambleUI" parent="GameUI" instance=ExtResource("9_nuuaq")]
+unique_name_in_owner = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, -2)
+occluder = SubResource("OccluderPolygon2D_c346u")
+
+[node name="LightBugFix" type="LightOccluder2D" parent="."]
+visible = false
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, -2)
+occluder = SubResource("OccluderPolygon2D_gtruh")
+
+[connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]
+[connection signal="area_exited" from="PickupArea" to="." method="_on_pickup_area_area_exited"]
+[connection signal="area_entered" from="HurtboxArea" to="." method="_on_hurtbox_area_area_entered"]
+[connection signal="timeout" from="GoMenuTimer" to="." method="_on_go_menu_timer_timeout"]

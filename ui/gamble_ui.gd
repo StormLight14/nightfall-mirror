@@ -8,8 +8,8 @@ func _ready() -> void:
 	modulate = Color(1, 1, 1, 0)
 
 func visible() -> void:
-	#var result = ["slow", "fast", "stalker", "blind"].pick_random()
-	var result = "slow"
+	result = ["slow", "fast", "stalker", "blind"].pick_random()
+
 	match result:
 		"slow":
 			%Label.text = "you have become weaker..."
@@ -28,9 +28,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	
 	match result:
 		"slow":
-			Player.speed_scale -= 0.15
+			Signals.set_speed_scale.emit(0.5)
 		"fast":
-			Player.speed_scale -= 0.1
+			Signals.set_speed_scale.emit(1.5)
 		"stalker":
 			Signals.spawn_stalker.emit()
 		"blind":

@@ -11,3 +11,5 @@ signal fade_completed(type: String) # "fade_in", "fade_out", "player_died"
 signal show_gamble_ui
 signal spawn_stalker
 signal blind_player
+signal set_speed_scale(speed: float)
+signal set_brightness_scale(brightness: float)

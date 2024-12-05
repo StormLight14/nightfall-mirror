@@ -7,6 +7,7 @@ func _ready() -> void:
 	daytime()
 	%AnimationPlayer.speed_scale = 15 # for testing night cycle
 	_on_day_timer_timeout() # to turn night instantly
+	Audio.play_sound("spooky1")
 
 func _process(_delta) -> void:
 	if Input.is_action_just_pressed("turn_day"):

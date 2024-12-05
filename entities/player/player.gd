@@ -119,7 +119,7 @@ func _on_pickup_area_area_exited(area: Area2D) -> void:
 		pickupable_object = null
 		pickupable_item_id = null
 
-func _on_hurtbox_area_area_entered(area: Area2D) -> void:
+func _on_hurtbox_area_area_entered(_area: Area2D) -> void:
 	if %GoMenuTimer.is_stopped() == true:
 		# player dies
 		Fade.play("player_died")
@@ -130,4 +130,4 @@ func _on_go_menu_timer_timeout() -> void:
 
 func show_gamble_ui() -> void:
 	if not %Inventory.visible:
-		%GambleUI.visible = true
+		%GambleUI.animation_player.play("visible")

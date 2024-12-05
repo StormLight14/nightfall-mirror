@@ -11,7 +11,7 @@ func _ready():
 	Signals.inventory_updated.connect(update_slot)
 	Signals.changed_hotbar_selection.connect(update_slot)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if get_node_or_null("InventoryItem"):
 		get_node("InventoryItem").global_position = get_viewport().get_mouse_position()
 

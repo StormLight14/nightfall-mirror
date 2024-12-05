@@ -11,7 +11,7 @@ func _ready() -> void:
 		%GridContainer.add_child(inventory_slot)
 		
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if UI.showing_inventory_item:
 		get_parent().get_node("InventoryItem").position = get_viewport().get_mouse_position() + Vector2(8.0, 8.0)
 

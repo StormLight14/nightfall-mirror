@@ -265,6 +265,15 @@ position = Vector2(-78, -36)
 [node name="Twig" parent="Objects" instance=ExtResource("10_o6nhy")]
 position = Vector2(96, -16)
 
+[node name="Twig2" parent="Objects" instance=ExtResource("10_o6nhy")]
+position = Vector2(96, -16)
+
+[node name="Twig3" parent="Objects" instance=ExtResource("10_o6nhy")]
+position = Vector2(133, -16)
+
+[node name="Twig4" parent="Objects" instance=ExtResource("10_o6nhy")]
+position = Vector2(166, -13)
+
 [node name="CreatureSpawns" type="Node2D" parent="."]
 
 [node name="StalkerSpawnPoint" parent="CreatureSpawns" instance=ExtResource("8_2677o")]

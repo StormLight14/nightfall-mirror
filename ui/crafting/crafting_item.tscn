@@ -11,40 +11,64 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_xfuua")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 109.0
+offset_bottom = 18.0
+color = Color(0, 0, 0, 0.12549)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 17.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/CenterContainer"]
+layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="Item" type="TextureRect" parent="HBoxContainer"]
+[node name="Item" type="TextureRect" parent="ColorRect/MarginContainer/CenterContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("2_j6tkh")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "Rock on Stick: "
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/MarginContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="Ingredient1" type="TextureRect" parent="HBoxContainer/HBoxContainer2"]
+[node name="Ingredient1" type="TextureRect" parent="ColorRect/MarginContainer/CenterContainer/HBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_qyrw1")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="Ingredient2" type="TextureRect" parent="HBoxContainer/HBoxContainer2"]
+[node name="Ingredient2" type="TextureRect" parent="ColorRect/MarginContainer/CenterContainer/HBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_qyrw1")
 expand_mode = 3
 stretch_mode = 4
+
+[connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect" to="." method="_on_color_rect_mouse_exited"]

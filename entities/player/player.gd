@@ -13,6 +13,8 @@ var speed_scale = 1.0
 var brightness_scale = 1.0
 
 func _ready() -> void:
+	if not Settings.show_hints:
+		%GlobalHintLabel.visible = false
 	$AnimatedSprite2D.play("static_down")
 	Signals.show_gamble_ui.connect(show_gamble_ui)
 	Signals.set_speed_scale.connect(set_speed_scale)

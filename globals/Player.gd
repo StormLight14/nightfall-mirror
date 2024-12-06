@@ -4,6 +4,7 @@ const INVENTORY_SIZE = 20
 
 var inventory := []
 var selected_hotbar_slot_id = 0 # 0, 1, 2, 3
+var selected_crafting_item_id = null
 
 var nights_survived := 0
 

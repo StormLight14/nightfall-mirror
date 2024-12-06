@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cwpbcq6loe2e2"]
+[gd_scene load_steps=16 format=4 uid="uid://cwpbcq6loe2e2"]
 
 [ext_resource type="PackedScene" uid="uid://dnl4avpgx1x7o" path="res://entities/player/player.tscn" id="1_7ld21"]
 [ext_resource type="Script" path="res://scenes/main/island.gd" id="1_o107c"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bf8n6ocu1ce17" path="res://scenes/objects/trees/tree.tscn" id="5_f4vhq"]
 [ext_resource type="PackedScene" uid="uid://bb0pwqikwri2c" path="res://scenes/objects/rocks/rock.tscn" id="5_l7ouf"]
 [ext_resource type="PackedScene" uid="uid://ctnt18khmkkxd" path="res://entities/stalker/stalker_spawn_point.tscn" id="8_2677o"]
+[ext_resource type="PackedScene" uid="uid://dpt3e6yhjbasu" path="res://scenes/objects/items/twig.tscn" id="10_o6nhy"]
 [ext_resource type="PackedScene" uid="uid://7rm38r62ddlr" path="res://entities/evil_unicorn/evil_unicorn.tscn" id="11_reqk3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ctrbk"]
@@ -277,6 +278,9 @@ wait_time = 95.0
 [node name="StopRainTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 35.0
+
+[node name="Area2D" parent="." instance=ExtResource("10_o6nhy")]
+position = Vector2(96, -16)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="NightTimer" to="." method="_on_night_timer_timeout"]

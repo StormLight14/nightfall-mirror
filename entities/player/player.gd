@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 var active_pickup_areas := []
 var pickupable_object = null
+var pickupable_area = null
 var pickupable_item_id = null
 
 var speed_scale = 1.0
@@ -19,10 +20,15 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
+	movement_hint()
 	interactions()
 	animations()
 	handle_ui_inputs()
 	hotbar_selection()
+	
+func movement_hint():
+	if velocity != Vector2.ZERO:
+		%ClearHintTimer.start()
 
 func animations() -> void:
 	if Input.is_action_pressed("down"):
@@ -92,16 +98,17 @@ func set_brightness_scale(brightness: float) -> void:
 	brightness_scale = brightness
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:
-	var hint := area.get_parent().get_node("Hint")
+	var hint := area.get_node("Hint")
 	if hint and Settings.show_hints:
 		hint.visible = true  # show the hint for this area
 	
 	# hide the hint for the previously picked-up object
-	if pickupable_object:
-		pickupable_object.get_node("Hint").visible = false
+	if pickupable_area:
+		pickupable_area.get_node("Hint").visible = false
 
 	# update the currently picked-up object and item ID
 	pickupable_object = area.get_parent()
+	pickupable_area = area
 	pickupable_item_id = area.item_id
 
 	# add the new area to the active list
@@ -109,7 +116,7 @@ func _on_pickup_area_area_entered(area: Area2D) -> void:
 		active_pickup_areas.append(area)
 
 func _on_pickup_area_area_exited(area: Area2D) -> void:
-	var hint := area.get_parent().get_node("Hint")
+	var hint := area.get_node("Hint")
 	if hint:
 		hint.visible = false
 	
@@ -142,3 +149,6 @@ func _on_go_menu_timer_timeout() -> void:
 func show_gamble_ui() -> void:
 	if not %Inventory.visible:
 		%GambleUI.visible()
+
+func _on_clear_hint_timer_timeout() -> void:
+	%GlobalHintLabel.text = ""

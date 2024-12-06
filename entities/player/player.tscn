@@ -144,6 +144,11 @@ process_mode = 3
 wait_time = 2.5
 one_shot = true
 
+[node name="ClearHintTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
 [node name="GameUI" type="CanvasLayer" parent="."]
 process_mode = 3
 
@@ -167,6 +172,23 @@ visible = false
 [node name="GambleUI" parent="GameUI" instance=ExtResource("9_nuuaq")]
 unique_name_in_owner = true
 
+[node name="GlobalHint" type="MarginContainer" parent="GameUI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="GlobalHintLabel" type="Label" parent="GameUI/GlobalHint"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Press W, A, S, and D to move."
+horizontal_alignment = 1
+
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 light_mask = 2
 visibility_layer = 2
@@ -184,3 +206,4 @@ occluder = SubResource("OccluderPolygon2D_gtruh")
 [connection signal="area_exited" from="PickupArea" to="." method="_on_pickup_area_area_exited"]
 [connection signal="area_entered" from="HurtboxArea" to="." method="_on_hurtbox_area_area_entered"]
 [connection signal="timeout" from="GoMenuTimer" to="." method="_on_go_menu_timer_timeout"]
+[connection signal="timeout" from="ClearHintTimer" to="." method="_on_clear_hint_timer_timeout"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb0pwqikwri2c"]
+[gd_scene load_steps=5 format=3 uid="uid://bb0pwqikwri2c"]
 
 [ext_resource type="Script" path="res://scenes/objects/rocks/rock.gd" id="1_qkipj"]
 [ext_resource type="PackedScene" uid="uid://dp3gwauh7erjh" path="res://components/pickupable.tscn" id="2_unhmv"]
-[ext_resource type="PackedScene" uid="uid://dniyxkb2thj51" path="res://ui/hint.tscn" id="3_umvct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ineuc"]
 size = Vector2(11, 12)
@@ -23,8 +22,5 @@ item_id = "rock"
 
 [node name="CollisionShape2D" parent="Pickupable" index="0"]
 shape = SubResource("RectangleShape2D_dfcue")
-
-[node name="Hint" parent="." instance=ExtResource("3_umvct")]
-visible = false
 
 [editable path="Pickupable"]

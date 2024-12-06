@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp3gwauh7erjh"]
+[gd_scene load_steps=3 format=3 uid="uid://dp3gwauh7erjh"]
 
 [ext_resource type="Script" path="res://components/pickupable.gd" id="1_lihaw"]
+[ext_resource type="PackedScene" uid="uid://dniyxkb2thj51" path="res://ui/hint.tscn" id="2_pxk3n"]
 
 [node name="Pickupable" type="Area2D"]
 collision_layer = 32
@@ -11,3 +12,6 @@ script = ExtResource("1_lihaw")
 debug_color = Color(0.802888, 0.221996, 0.868868, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Hint" parent="." instance=ExtResource("2_pxk3n")]
+visible = false

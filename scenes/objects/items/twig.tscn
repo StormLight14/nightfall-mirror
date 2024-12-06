@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpt3e6yhjbasu"]
+
+[ext_resource type="PackedScene" uid="uid://dp3gwauh7erjh" path="res://components/pickupable.tscn" id="1_qarpq"]
+[ext_resource type="Texture2D" uid="uid://bbgjs1amp7uee" path="res://scenes/objects/items/twig.png" id="2_pbply"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt64f"]
+size = Vector2(25, 25)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Pickupable" parent="." instance=ExtResource("1_qarpq")]
+item_id = "twig"
+
+[node name="CollisionShape2D" parent="Pickupable" index="0"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_lt64f")
+
+[node name="Sprite2D" parent="Pickupable" index="1"]
+texture = ExtResource("2_pbply")
+
+[editable path="Pickupable"]

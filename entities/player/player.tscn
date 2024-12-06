@@ -134,6 +134,10 @@ collision_mask = 2
 position = Vector2(0.5, -11)
 shape = SubResource("RectangleShape2D_v0vhp")
 
+[node name="HitboxArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
 [node name="GoMenuTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 process_mode = 3

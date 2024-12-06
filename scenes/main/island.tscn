@@ -198,41 +198,20 @@ offset_top = 0.0
 offset_right = 140.0
 offset_bottom = 0.0
 
-[node name="Tree" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(46, -14)
-
 [node name="Tree2" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(218, -28)
+position = Vector2(71, -32)
 
 [node name="Tree3" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(157, 9)
-
-[node name="Tree5" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(201, 54)
-
-[node name="Tree6" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(276, 28)
-
-[node name="Tree7" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(325, -18)
-
-[node name="Tree8" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(272, -70)
-
-[node name="Tree9" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(172, -67)
-
-[node name="Tree10" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(220, -100)
-
-[node name="Tree11" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(135, -104)
-
-[node name="Tree12" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(64, -83)
+position = Vector2(134, -75)
 
 [node name="Tree4" parent="Objects" instance=ExtResource("5_f4vhq")]
-position = Vector2(105, -46)
+position = Vector2(203, 1)
+
+[node name="Tree5" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(211, -130)
+
+[node name="Tree6" parent="Objects" instance=ExtResource("5_f4vhq")]
+position = Vector2(271, -74)
 
 [node name="Rock" parent="Objects" instance=ExtResource("5_l7ouf")]
 position = Vector2(56, 104)

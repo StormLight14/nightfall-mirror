@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf8n6ocu1ce17"]
+[gd_scene load_steps=7 format=3 uid="uid://bf8n6ocu1ce17"]
 
 [ext_resource type="Script" path="res://scenes/objects/trees/tree.gd" id="1_8x6wr"]
 [ext_resource type="Texture2D" uid="uid://bysx5ea3q23g3" path="res://scenes/objects/trees/pine1.png" id="1_yo22k"]
@@ -10,9 +10,6 @@ height = 12.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s3hyw"]
 polygon = PackedVector2Array(-4, 0, 1, 0, 4, 3, 4, 5, 2, 7, -5, 7, -7, 6, -7, 3)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_uao4i"]
-radius = 46.0109
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5dclo"]
 radius = 15.0
@@ -47,14 +44,6 @@ shape = SubResource("CapsuleShape2D_3g54j")
 position = Vector2(1, -4)
 occluder = SubResource("OccluderPolygon2D_s3hyw")
 
-[node name="PlayerArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-
-[node name="Pine1PlayerShape" type="CollisionShape2D" parent="PlayerArea"]
-position = Vector2(0, -26)
-shape = SubResource("CircleShape2D_uao4i")
-
 [node name="MouseArea" type="Area2D" parent="."]
 
 [node name="Pine1MouseShape" type="CollisionShape2D" parent="MouseArea"]
@@ -62,7 +51,5 @@ position = Vector2(0, -26)
 shape = SubResource("CapsuleShape2D_5dclo")
 debug_color = Color(0.517361, 0.456377, 0.906618, 0.42)
 
-[connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]
-[connection signal="body_exited" from="PlayerArea" to="." method="_on_player_area_body_exited"]
 [connection signal="mouse_entered" from="MouseArea" to="." method="_on_mouse_area_mouse_entered"]
 [connection signal="mouse_exited" from="MouseArea" to="." method="_on_mouse_area_mouse_exited"]

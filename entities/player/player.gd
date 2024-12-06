@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	hotbar_selection()
 	
 func movement_hint():
-	if velocity != Vector2.ZERO:
+	if velocity != Vector2.ZERO && %ClearHintTimer.is_stopped() == true:
 		%ClearHintTimer.start()
 
 func animations() -> void:

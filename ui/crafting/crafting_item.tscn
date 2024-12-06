@@ -17,11 +17,12 @@ script = ExtResource("1_xfuua")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 22.0
+offset_bottom = 17.0
 grow_horizontal = 2
 theme_override_constants/separation = 5
 
 [node name="Item" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("2_j6tkh")
 expand_mode = 3
@@ -35,9 +36,15 @@ text = "Rock on Stick: "
 layout_mode = 2
 
 [node name="Ingredient1" type="TextureRect" parent="HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_qyrw1")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="Ingredient2" type="TextureRect" parent="HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_qyrw1")
+expand_mode = 3
+stretch_mode = 4

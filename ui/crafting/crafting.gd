@@ -42,7 +42,9 @@ func get_inventory_amount(item_id: String) -> int:
 func add_crafting_option(item: Dictionary) -> void:
 	# Add the crafting option to the UI (replace with actual UI logic)
 	# For now, just printing to console
-	print("Displaying crafting option: " + item.display_name)
+	var crafting_item = preload("res://ui/crafting/crafting_item.tscn").instantiate()
+	crafting_item.item = item
+	%CraftingItems.add_child(crafting_item)
 
 func clear_crafting_list() -> void:
 	# Clear the crafting list UI (replace with actual UI logic)

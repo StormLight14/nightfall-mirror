@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var can_interact := false
+var play_game := false
 
 func _ready() -> void:
 	Signals.night_ended.connect(start_despawn)
@@ -11,6 +12,7 @@ func _physics_process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("interact") && can_interact:
 		$Dialogue.text = "..."
+		play_game = true
 		start_despawn()
 
 func start_despawn() -> void:
@@ -29,5 +31,6 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "despawn":
-		Signals.show_gamble_ui.emit()
+		if play_game:
+			Signals.show_gamble_ui.emit()
 		queue_free()

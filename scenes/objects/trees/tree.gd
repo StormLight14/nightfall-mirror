@@ -27,7 +27,6 @@ func update_mouse():
 	else:
 		Input.set_custom_mouse_cursor(preload("res://ui/cursor.png"))
 
-
 func _on_mouse_area_mouse_entered() -> void:
 	mouse_in_area = true
 	update_mouse()

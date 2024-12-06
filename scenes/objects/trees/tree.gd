@@ -8,10 +8,16 @@ func _ready():
 
 	if pine_type == 2:
 		%Pine1Shape.disabled = true
+		%Pine1MouseShape.disabled = true
+		%Pine2Shape.disabled = false
+		%Pine2MouseShape.disabled = false
 		$Pine1Sprite.visible = false
 		$Pine2Sprite.visible = true
 	else:
+		%Pine1Shape.disabled = false
+		%Pine1MouseShape.disabled = false
 		%Pine2Shape.disabled = true
+		%Pine2MouseShape.disabled = true
 		$Pine1Sprite.visible = true
 		$Pine2Sprite.visible = false
 	

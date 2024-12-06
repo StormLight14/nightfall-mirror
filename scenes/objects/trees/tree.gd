@@ -20,7 +20,7 @@ func _ready():
 		%Pine2MouseShape.disabled = true
 		$Pine1Sprite.visible = true
 		$Pine2Sprite.visible = false
-	
+
 	var rand_scale := randf_range(0.9, 1.1)
 	$Pine1Sprite.scale *= rand_scale
 	$Pine2Sprite.scale *= rand_scale

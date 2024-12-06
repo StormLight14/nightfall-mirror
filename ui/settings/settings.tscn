@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://0erp8mecscd5"]
+[gd_scene load_steps=4 format=3 uid="uid://0erp8mecscd5"]
 
 [ext_resource type="Script" path="res://ui/settings/settings.gd" id="1_83umr"]
+[ext_resource type="Texture2D" uid="uid://ddswasfl1482w" path="res://ui/buttons/back_button.png" id="2_s32sb"]
+[ext_resource type="Texture2D" uid="uid://ddhsv6gk535ee" path="res://ui/buttons/hover_back_button.png" id="3_2h3w4"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -73,5 +75,21 @@ unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 33.0
+offset_bottom = 34.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+
+[node name="BackButton" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_s32sb")
+texture_pressed = ExtResource("3_2h3w4")
+texture_hover = ExtResource("3_2h3w4")
+texture_focused = ExtResource("3_2h3w4")
+stretch_mode = 4
+
 [connection signal="item_selected" from="CenterContainer/VBoxContainer/Language/LanguageSelect" to="." method="_on_language_select_item_selected"]
 [connection signal="toggled" from="CenterContainer/VBoxContainer/ShowHints/ShowHintsCheck" to="." method="_on_show_hints_check_toggled"]
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

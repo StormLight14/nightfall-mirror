@@ -8,6 +8,13 @@ var items := {
 		"stack_size": 10,
 		"crafting_ingredients": [null, 0]
 	},
+	"twig": {
+		"id": "twig",
+		"display_name": "Twig",
+		"item_sprite": preload("res://scenes/objects/items/twig.png"),
+		"stack_size": 10,
+		"crafting_ingredients": [null, 0]
+	},
 	"wood": {
 		"id": "wood",
 		"display_name": "Wood",

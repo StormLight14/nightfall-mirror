@@ -131,11 +131,13 @@ func _on_pickup_area_area_exited(area: Area2D) -> void:
 		
 		# update the pickupable object and item ID to match the last active area
 		pickupable_object = last_area.get_parent()
+		pickupable_area = last_area
 		pickupable_item_id = last_area.item_id
 	else:
 		# if no active areas, reset the pickupable object and item ID
 		pickupable_object = null
 		pickupable_item_id = null
+		pickupable_area = null
 
 func _on_hurtbox_area_area_entered(_area: Area2D) -> void:
 	if %GoMenuTimer.is_stopped() == true:

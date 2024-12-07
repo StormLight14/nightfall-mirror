@@ -2,7 +2,16 @@ extends Control
 
 func _ready() -> void:
 	Signals.inventory_updated.connect(update_crafting_list)
+	%CraftButton.visible = false
 	update_crafting_list()
+	
+func _process(_delta) -> void:
+	var crafting_item_selected = false
+	if %CraftButton.visible == true:
+		%CraftButton.visible = false
+	for crafting_item in %CraftingItems.get_children():
+		if crafting_item.selected:
+			%CraftButton.visible = true
 
 func update_crafting_list() -> void:
 	clear_crafting_list()
@@ -36,7 +45,9 @@ func add_crafting_option(item: Dictionary) -> void:
 	var crafting_item = preload("res://ui/crafting/crafting_item.tscn").instantiate()
 	crafting_item.item = item
 	%CraftingItems.add_child(crafting_item)
+	%CraftButton.visible = true
 
 func clear_crafting_list() -> void:
 	for child in %CraftingItems.get_children():
 		child.queue_free()
+		%CraftButton.visible = false

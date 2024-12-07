@@ -303,7 +303,7 @@ one_shot = true
 
 [node name="StartRainTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 95.0
+wait_time = 40.0
 
 [node name="StopRainTimer" type="Timer" parent="."]
 unique_name_in_owner = true

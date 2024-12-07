@@ -25,9 +25,9 @@ func _process(_delta):
 
 func update_background_color():
 	if selected:
-		$ColorRect.color = (Color(0, 0, 0, 0.2))
+		$ColorRect.color = (Color(0, 0, 0, 0.3))
 	else:
-		$ColorRect.color = (Color(0, 0, 0, 0.1))
+		$ColorRect.color = (Color(0, 0, 0, 0.15))
 
 func _on_color_rect_mouse_entered() -> void:
 	mouse_hovering = true

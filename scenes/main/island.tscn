@@ -152,6 +152,7 @@ scale = Vector2(5.72178, 5.72178)
 polygon = PackedVector2Array(192, -192, 192, 36.4299, 192, 264, -189, 265, -189, -193)
 
 [node name="Rain" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
 visible = false
 material = SubResource("ShaderMaterial_ctrbk")
 anchors_preset = 15

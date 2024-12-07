@@ -50,4 +50,31 @@ func add_crafting_option(item: Dictionary) -> void:
 func clear_crafting_list() -> void:
 	for child in %CraftingItems.get_children():
 		child.queue_free()
-		%CraftButton.visible = false
+
+func _on_craft_button_pressed() -> void:
+	print("test")
+	if Player.selected_crafting_item_id == null:
+		print("No crafting item selected.")
+		return
+	
+	# get selected crafting item's data
+	var crafted_item_data = Items.items.get(Player.selected_crafting_item_id, null)
+	if crafted_item_data == null:
+		print("Invalid crafted item selected.")
+		return
+	
+	# check player can craft the item
+	if not can_craft(crafted_item_data.crafting_ingredients):
+		print("Not enough materials to craft this item.")
+		return
+
+	# remove materials player's inventory
+	for ingredient in crafted_item_data.crafting_ingredients:
+		var ingredient_id = ingredient[0]
+		var amount_to_remove = ingredient[1]
+		Player.remove_from_inventory(ingredient_id, amount_to_remove)
+
+	Player.add_to_inventory(crafted_item_data.id, 1)
+	print("Crafted:", crafted_item_data.display_name)
+
+	update_crafting_list()

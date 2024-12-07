@@ -73,3 +73,19 @@ func swap_slot_items(slot_1, slot_2) -> void:
 		inventory[slot_1] = inventory[slot_2]
 		inventory[slot_2] = temp_item_1
 		Signals.inventory_updated.emit()
+
+func remove_from_inventory(item_id: String, amount: int) -> void:
+	for i in range(len(inventory)):
+		if inventory[i] and inventory[i][0].id == item_id:
+			var current_amount = inventory[i][1]
+			if current_amount > amount:
+				inventory[i][1] -= amount
+				Signals.inventory_updated.emit()
+				return
+			else:
+				amount -= current_amount
+				inventory[i] = null  # Clear the slot if fully used
+				Signals.inventory_updated.emit()
+				if amount <= 0:
+					return
+	print("WARNING: Not enough", item_id, "to remove from inventory.")

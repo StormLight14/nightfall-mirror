@@ -15,6 +15,7 @@ anchor_bottom = 1.0
 offset_left = -128.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_3m5g2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -59,6 +60,7 @@ offset_left = 11.0
 offset_top = 187.0
 offset_right = 101.0
 offset_bottom = 208.0
+action_mode = 0
 texture_normal = ExtResource("3_x4qbp")
 texture_pressed = ExtResource("4_dpj72")
 texture_hover = ExtResource("4_dpj72")
@@ -73,3 +75,5 @@ theme_override_font_sizes/font_size = 6
 text = "Craft!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="CraftButton" to="." method="_on_craft_button_pressed"]

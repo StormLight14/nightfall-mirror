@@ -18,19 +18,25 @@ func _process(_delta):
 		if mouse_hovering && not selected:
 			selected = true
 			Player.selected_crafting_item_id = item.id
+			%DelayTimer.stop()
 		elif not mouse_hovering && selected:
-			selected = false
-			Player.selected_crafting_item_id = item.id
+			%DelayTimer.start()
+
 		update_background_color()
 
 func update_background_color():
 	if selected:
 		$ColorRect.color = (Color(0, 0, 0, 0.3))
 	else:
-		$ColorRect.color = (Color(0, 0, 0, 0.15))
+		$ColorRect.color = (Color(0, 0, 0, 0.1))
 
 func _on_color_rect_mouse_entered() -> void:
 	mouse_hovering = true
 
 func _on_color_rect_mouse_exited() -> void:
 	mouse_hovering = false
+
+func _on_delay_timer_timeout() -> void:
+	selected = false
+	if Player.selected_crafting_item_id == item.id:
+		Player.selected_crafting_item_id = null

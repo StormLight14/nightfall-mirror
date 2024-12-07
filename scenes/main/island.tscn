@@ -261,6 +261,7 @@ position = Vector2(272, 96)
 is_shapeshifter = true
 
 [node name="EvilUnicorn" parent="Objects" instance=ExtResource("11_reqk3")]
+visible = false
 position = Vector2(-78, -36)
 
 [node name="Twig" parent="Objects" instance=ExtResource("10_o6nhy")]
